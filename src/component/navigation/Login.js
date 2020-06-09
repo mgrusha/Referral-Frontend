@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Login = ({ loggedUser }) => {
+const User = ({ loggedUser }) => {
   return <button>Hi, {loggedUser}</button>;
 };
 
-export { Login };
+export { User };
