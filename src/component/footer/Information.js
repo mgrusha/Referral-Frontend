@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Information = () => {
   return (
     <div>
-      <span>Fin service that you need</span>
+      <span>Find the referral that you need</span>
     </div>
   );
 };

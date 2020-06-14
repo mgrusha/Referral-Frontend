@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,900&display=swap');
+:root {
+  --main-font-color: white;
+  --header-color: #5b1152;
+  --header-hover-button-color: #811875;
+  --main-font-family: "Roboto", sans-serif;
+}
+
 .container {
   margin: 0px auto;
   width: 85rem;

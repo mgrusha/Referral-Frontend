@@ -1,13 +1,13 @@
 import React from "react";
 import { SearchBox } from "./SearchBox";
-import { ServicesList } from "./ServicesList";
+import { CategoriesList } from "./Services/CategoriesList";
 
 const Content = () => {
   return (
-    <>
+    <div className="container">
       <SearchBox />
-      <ServicesList />
-    </>
+      <CategoriesList />
+    </div>
   );
 };
 

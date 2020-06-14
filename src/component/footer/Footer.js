@@ -7,7 +7,7 @@ const FooterContainer = styled.footer``;
 
 const Footer = () => {
   return (
-    <FooterContainer>
+    <FooterContainer className="container">
       <Email />
       <Information />
     </FooterContainer>
