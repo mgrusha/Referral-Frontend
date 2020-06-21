@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { User } from "./Login";
-import { Button } from "../generic/Button";
+import { UserIcon } from "./UserIcon";
+
 import LinePic from "../../assets/line.png";
 import ArrowPicLeft from "../../assets/arrow.png";
+import { LoginIcon } from "./LoginIcon";
 
 const HeaderContainer = styled.header`
   background-color: var(--header-color);
@@ -63,6 +64,24 @@ const Header = () => {
     },
   });
 
+  const logIn = (login, password) => {
+    if (login === "Anonymus" && password === "password") {
+      setLoggedUser({
+        loogedInStatus: "LOGGED_IN",
+        user: {
+          firstName: "Guy",
+          lastName: "Fox",
+          userName: "Anonymus",
+          avatar: "avatar.jpg",
+        },
+      });
+    }
+  };
+
+  const logOut = () => {
+    setLoggedUser({ loogedInStatus: "NOT_LOGGED_IN" });
+  };
+
   return (
     <HeaderContainer>
       <MainBar className="container">
@@ -73,10 +92,10 @@ const Header = () => {
           <Logo>Referral Exchange</Logo>
           <Slogan>Get your bonus</Slogan>
         </div>
-        {loggedUser.loogedInStatus === "NOT_LOGGED_IN" ? (
-          <Button>Login</Button>
+        {loggedUser.loogedInStatus !== "LOGGED_IN" ? (
+          <LoginIcon logIn={logIn} />
         ) : (
-          <User loggedUser={loggedUser.user} />
+          <UserIcon loggedUser={loggedUser.user} logOut={logOut} />
         )}
       </MainBar>
     </HeaderContainer>

@@ -26,7 +26,7 @@ const RoundButton = styled.button`
 `;
 
 const Button = (props) => {
-  return <RoundButton>{props.children}</RoundButton>;
+  return <RoundButton onClick={props.onClick}>{props.children}</RoundButton>;
 };
 
 export { Button };

@@ -12,7 +12,7 @@ const StyledAvatar = styled(Avatar)`
   }
 `;
 
-const User = ({ loggedUser }) => {
+const UserIcon = ({ loggedUser, logOut }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -32,6 +32,7 @@ const User = ({ loggedUser }) => {
   if (loggedUser.avatar !== "") {
     avatar = (
       <StyledAvatar
+        aria-controls="customized-avatar"
         alt={loggedUser.userName}
         src={process.env.PUBLIC_URL + `/static/avatars/${loggedUser.avatar}`}
         onClick={handleClick}
@@ -49,7 +50,17 @@ const User = ({ loggedUser }) => {
     <div>
       {avatar}
       <Menu
-        id="simple-menu"
+        elevation={0}
+        getContentAnchorEl={null}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        id="customized-avatar"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
@@ -57,10 +68,16 @@ const User = ({ loggedUser }) => {
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>Change settings</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem
+          onClick={() => {
+            logOut();
+          }}
+        >
+          Logout
+        </MenuItem>
       </Menu>
     </div>
   );
 };
 
-export { User };
+export { UserIcon };
