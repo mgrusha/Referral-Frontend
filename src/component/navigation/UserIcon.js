@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
@@ -13,7 +13,7 @@ const StyledAvatar = styled(Avatar)`
 `;
 
 const UserIcon = ({ loggedUser, logOut }) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

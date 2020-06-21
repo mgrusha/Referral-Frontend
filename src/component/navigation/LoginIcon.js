@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../generic/Button";
 import Menu from "@material-ui/core/Menu";
 import TextField from "@material-ui/core/TextField";
@@ -15,6 +15,15 @@ export const LoginIcon = ({ logIn }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
+  const [IsButtonDisabled, setIsButtonDisabled] = useState(false);
+
+  useEffect(() => {
+    if (login.trim() && password.trim()) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
+  }, [login, password]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -50,7 +59,7 @@ export const LoginIcon = ({ logIn }) => {
         <FieldBox>
           <TextField
             id="loginField"
-            label="Login"
+            label="Username"
             variant="outlined"
             value={login}
             onChange={(e) => setLogin(e.target.value)}
@@ -69,8 +78,12 @@ export const LoginIcon = ({ logIn }) => {
             variant="contained"
             onClick={handleLogIn}
             tabIndex={3}
+            disabled={IsButtonDisabled}
           >
             Login
+          </MaterialButton>
+          <MaterialButton variant="contained" tabIndex={4}>
+            Register
           </MaterialButton>
         </FieldBox>
       </Menu>

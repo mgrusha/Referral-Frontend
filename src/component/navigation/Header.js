@@ -54,32 +54,28 @@ const RightArrow = styled(LeftArrow)`
 `;
 
 const Header = () => {
+  const [loggedStatus, setLoggedStatus] = useState(true);
   const [loggedUser, setLoggedUser] = useState({
-    loogedInStatus: "LOGGED_IN",
-    user: {
-      firstName: "Guy",
-      lastName: "Fox",
-      userName: "Anonymus",
-      avatar: "avatar.jpg",
-    },
+    firstName: "Guy",
+    lastName: "Fox",
+    userName: "Anonymus",
+    avatar: "avatar.jpg",
   });
 
   const logIn = (login, password) => {
     if (login === "Anonymus" && password === "password") {
+      setLoggedStatus(true);
       setLoggedUser({
-        loogedInStatus: "LOGGED_IN",
-        user: {
-          firstName: "Guy",
-          lastName: "Fox",
-          userName: "Anonymus",
-          avatar: "avatar.jpg",
-        },
+        firstName: "Guy",
+        lastName: "Fox",
+        userName: "Anonymus",
+        avatar: "avatar.jpg",
       });
     }
   };
 
   const logOut = () => {
-    setLoggedUser({ loogedInStatus: "NOT_LOGGED_IN" });
+    setLoggedStatus(false);
   };
 
   return (
@@ -92,10 +88,10 @@ const Header = () => {
           <Logo>Referral Exchange</Logo>
           <Slogan>Get your bonus</Slogan>
         </div>
-        {loggedUser.loogedInStatus !== "LOGGED_IN" ? (
-          <LoginIcon logIn={logIn} />
+        {loggedStatus ? (
+          <UserIcon loggedUser={loggedUser} logOut={logOut} />
         ) : (
-          <UserIcon loggedUser={loggedUser.user} logOut={logOut} />
+          <LoginIcon logIn={logIn} />
         )}
       </MainBar>
     </HeaderContainer>
