@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { UserIcon } from "./UserIcon";
+import { useHistory } from "react-router-dom";
 
 import LinePic from "../../assets/line.png";
 import ArrowPicLeft from "../../assets/arrow.png";
@@ -53,7 +54,9 @@ const RightArrow = styled(LeftArrow)`
   transform: rotate(180deg);
 `;
 
-const Header = () => {
+const Header = (props) => {
+  let history = useHistory();
+
   const [loggedStatus, setLoggedStatus] = useState(true);
   const [loggedUser, setLoggedUser] = useState({
     firstName: "Guy",
@@ -70,6 +73,14 @@ const Header = () => {
         lastName: "Fox",
         userName: "Anonymus",
         avatar: "avatar.jpg",
+      });
+    } else {
+      history.push({
+        pathname: "/login",
+        state: {
+          userName: login,
+          initialError: "Incorrect username or password",
+        },
       });
     }
   };

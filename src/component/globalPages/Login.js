@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
+import { useHistory, Router } from "react-router-dom";
 
 const LoginForm = styled.form`
   display: flex;
@@ -24,7 +25,7 @@ const StyledHeader = styled(CardHeader)`
 
 const StyledCardActions = styled(CardActions)`
   && {
-    justify-content: center;
+    justify-content: space-around;
   }
 `;
 
@@ -36,23 +37,28 @@ const LoginContainer = styled.div`
   justify-content: center;
 `;
 
-export const Login = ({ userName, intialError }) => {
-  const [username, setUsername] = useState(userName || "");
+export const Login = (props) => {
+  let history = useHistory();
+  const [userName, setUsername] = useState(
+    props.location.state ? props.location.state.userName : ""
+  );
   const [password, setPassword] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [helperText, setHelperText] = useState(intialError);
-  const [error, setError] = useState(false);
+  const [helperText, setHelperText] = useState(
+    props.location.state ? props.location.state.initialError : ""
+  );
+  const [error, setError] = useState(Boolean(props.location.state));
 
   useEffect(() => {
-    if (username.trim() && password.trim()) {
+    if (userName.trim() && password.trim()) {
       setIsButtonDisabled(false);
     } else {
       setIsButtonDisabled(true);
     }
-  }, [username, password]);
+  }, [userName, password]);
 
   const handleLogin = () => {
-    if (username === "abc@email.com" && password === "password") {
+    if (userName === "abc@email.com" && password === "password") {
       setError(false);
       setHelperText("Login Successfully");
     } else {
@@ -82,6 +88,7 @@ export const Login = ({ userName, intialError }) => {
                 label="Username"
                 placeholder="Username"
                 margin="normal"
+                value={userName}
                 onChange={(e) => setUsername(e.target.value)}
                 onKeyPress={(e) => handleKeyPress(e)}
               />
@@ -93,6 +100,7 @@ export const Login = ({ userName, intialError }) => {
                 label="Password"
                 placeholder="Password"
                 margin="normal"
+                value={password}
                 helperText={helperText}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyPress={(e) => handleKeyPress(e)}
@@ -103,11 +111,21 @@ export const Login = ({ userName, intialError }) => {
             <Button
               variant="contained"
               size="large"
-              color="secondary"
               onClick={() => handleLogin()}
               disabled={isButtonDisabled}
             >
               Login
+            </Button>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() =>
+                history.push({
+                  pathname: "/register",
+                })
+              }
+            >
+              SIGN UP
             </Button>
           </StyledCardActions>
         </Card>
