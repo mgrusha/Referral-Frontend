@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Category } from "./Category";
+import { SearchBox } from "../SearchBox";
 
 import styled from "styled-components";
 
@@ -7,6 +8,16 @@ const CategoriesHolder = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (min-width: 1000px) {
+    padding-top: 3rem;
+  }
+`;
+
+const SearchBoxWrapper = styled.div`
+  display: block;
+  @media (min-width: 1000px) {
+    display: none;
+  }
 `;
 
 const CategoriesList = () => {
@@ -61,18 +72,23 @@ const CategoriesList = () => {
     },
   ]);
   return (
-    <CategoriesHolder>
-      {categories.map((element) => (
-        <Category
-          key={element.name}
-          numOfServices={element.numberOfServices}
-          picture={element.picture}
-          categoryName={element.name}
-          startColor={element.startColor}
-          endColor={element.endColor}
-        />
-      ))}
-    </CategoriesHolder>
+    <>
+      <SearchBoxWrapper>
+        <SearchBox />
+      </SearchBoxWrapper>
+      <CategoriesHolder>
+        {categories.map((element) => (
+          <Category
+            key={element.name}
+            numOfServices={element.numberOfServices}
+            picture={element.picture}
+            categoryName={element.name}
+            startColor={element.startColor}
+            endColor={element.endColor}
+          />
+        ))}
+      </CategoriesHolder>
+    </>
   );
 };
 

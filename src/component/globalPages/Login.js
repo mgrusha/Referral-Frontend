@@ -6,12 +6,13 @@ import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
-import { useHistory, Router } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { FullLogo } from "../generic/Logo";
 
 const LoginForm = styled.form`
   display: flex;
   flexwrap: wrap;
-  width: 400;
+
   margin: 0 auto;
 `;
 
@@ -29,12 +30,19 @@ const StyledCardActions = styled(CardActions)`
   }
 `;
 
+const LogoHolder = styled.div`
+  margin-bottom: 3rem;
+`;
+
 const LoginContainer = styled.div`
   background: var(--header-color);
   height: 100vh;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
 `;
 
 export const Login = (props) => {
@@ -75,6 +83,9 @@ export const Login = (props) => {
 
   return (
     <LoginContainer>
+      <LogoHolder>
+        <FullLogo title="Referral Exchange" slogan="Get your bonus" />
+      </LogoHolder>
       <LoginForm noValidate autoComplete="off">
         <Card>
           <StyledHeader title="Login" />

@@ -14,9 +14,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Application} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <Route path="/home" component={Application} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>

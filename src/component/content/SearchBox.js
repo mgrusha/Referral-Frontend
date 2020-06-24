@@ -3,7 +3,10 @@ import styled from "styled-components";
 import ReactSearchBox from "react-search-box";
 
 const SearchBoxWrapper = styled.div`
-  padding: 4rem;
+  padding: 2rem 0;
+  @media (min-width: 768px) {
+    padding: 4rem;
+  }
 `;
 
 const SearchBox = () => {

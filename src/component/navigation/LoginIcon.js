@@ -4,6 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 import MaterialButton from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
 
 const FieldBox = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const FieldBox = styled.div`
 `;
 
 export const LoginIcon = ({ logIn }) => {
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
@@ -82,7 +84,15 @@ export const LoginIcon = ({ logIn }) => {
           >
             Login
           </MaterialButton>
-          <MaterialButton variant="contained" tabIndex={4}>
+          <MaterialButton
+            variant="contained"
+            tabIndex={4}
+            onClick={() =>
+              history.push({
+                pathname: "/register",
+              })
+            }
+          >
             Register
           </MaterialButton>
         </FieldBox>

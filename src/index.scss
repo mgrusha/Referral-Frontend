@@ -9,7 +9,15 @@
 
 .container {
   margin: 0px auto;
-  width: 85rem;
+  @media (max-width: 767px) {
+    width: 300px;
+  }
+  @media (min-width: 768px) {
+    width: 700px;
+  }
+  @media (min-width: 1000px) {
+    width: 80rem;
+  }
 }
 
 //Dirty hack for menu item for the Material UI
