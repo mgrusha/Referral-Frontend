@@ -25,7 +25,7 @@ const RightArrow = styled(LeftArrow)`
 
 const Logo = styled.h2`
   color: white;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--main-font-family);
   font-style: italic;
   font-weight: 900;
   font-size: 2rem;
@@ -35,7 +35,7 @@ const Slogan = styled.h4`
   font-size: 1rem;
   color: white;
   font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--main-font-family);
 `;
 
 const FullLogo = ({ title, slogan }) => {
