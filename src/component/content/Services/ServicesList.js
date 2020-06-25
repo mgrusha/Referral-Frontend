@@ -5,16 +5,25 @@ import { FilterArea } from "./Filter";
 
 import styled from "styled-components";
 
-const ServiceHolder = styled.div``;
+const ServiceHolder = styled.div`
+  flex-grow: 3;
+  flex-wrap: wrap;
+  display: flex;
+`;
 
-const CategoryWithFilter = styled.main``;
+const CategoryWithFilter = styled.main`
+  display: flex;
+`;
 
 const CategoryName = styled.div`
   background-color: white;
+  padding: 0.5rem;
+  font-family: "Roboto", sans-serif;
 `;
 
 const CategoryHeader = styled.h2`
-  background-color: white;
+  font-weight: 700;
+  font-size: 3rem;
 `;
 
 const Services = [
@@ -56,7 +65,7 @@ const ServicesList = ({ title }) => {
   return (
     <>
       <CategoryName>
-        <CategoryHeader>{title}</CategoryHeader>
+        <CategoryHeader>Hotels{title}</CategoryHeader>
       </CategoryName>
       <CategoryWithFilter>
         <FilterArea />
