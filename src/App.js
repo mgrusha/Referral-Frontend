@@ -17,7 +17,7 @@ function App() {
         <Route path="/home" component={Application} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route component={PageNotFound} />
+        <Route exact component={PageNotFound} />
       </Switch>
     </Router>
   );
