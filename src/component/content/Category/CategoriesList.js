@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Category } from "./Category";
 import { SearchBox } from "../SearchBox";
-
+import { Loader } from "../../generic/Loader";
+import { Error } from "../../generic/Error";
 import styled from "styled-components";
+import { getAllCategories } from "../../../services/CategoryService";
 
 const CategoriesHolder = styled.div`
   display: flex;
@@ -21,76 +23,37 @@ const SearchBoxWrapper = styled.div`
 `;
 
 const CategoriesList = () => {
-  const [categories, setCategories] = useState([
-    {
-      name: "Taxi",
-      numberOfServices: "3",
-      picture: "hotel",
-      colors: ["#ee497a", "#f05c88"],
-    },
-    {
-      name: "Transport1",
-      numberOfServices: "100",
-      picture: "taxi",
-      startColor: "#ff7a51",
-      endColor: "#ff8862",
-    },
-    {
-      name: "Transport2",
-      numberOfServices: "15",
-      picture: "bicycle",
-      startColor: "#32bdba",
-      endColor: "#45c3c0",
-    },
-    {
-      name: "Food",
-      numberOfServices: "3",
-      picture: "utensils",
-      startColor: "#45b64a",
-      endColor: "#58bd5d",
-    },
-    {
-      name: "Transport3",
-      numberOfServices: "30",
-      picture: "hotel",
-      startColor: "#aeb844",
-      endColor: "#b9c452",
-    },
-    {
-      name: "Travel",
-      numberOfServices: "30",
-      picture: "hotel",
-      startColor: "#425ab8",
-      endColor: "#596cba",
-    },
-    {
-      name: "Travel1",
-      numberOfServices: "30",
-      picture: "hotel",
-      startColor: "#bf58b1",
-      endColor: "#bd35ab",
-    },
-  ]);
+  const [categories, setCategories] = useState([]);
+  const [isLoaded, toogleIsLoaded] = useState([false]);
+  const [error, setError] = useState();
 
-  return (
+  useEffect(
+    () => getAllCategories(setCategories, toogleIsLoaded, setError),
+    []
+  );
+
+  let successLoading = (
     <>
       <SearchBoxWrapper>
         <SearchBox />
       </SearchBoxWrapper>
       <CategoriesHolder>
-        {categories.map((element) => (
-          <Category
-            key={element.name}
-            numOfServices={element.numberOfServices}
-            picture={element.picture}
-            categoryName={element.name}
-            startColor={element.startColor}
-            endColor={element.endColor}
-          />
-        ))}
+        {(error && <Error error={error} />) ||
+          categories.map((element) => (
+            <Category
+              key={element.name}
+              numOfServices={element.numberOfServices}
+              picture={element.picture}
+              categoryName={element.name}
+              startColor={element.startColor}
+              endColor={element.endColor}
+            />
+          ))}
       </CategoriesHolder>
     </>
   );
+
+  return isLoaded ? successLoading : <Loader />;
 };
 
 export { CategoriesList };

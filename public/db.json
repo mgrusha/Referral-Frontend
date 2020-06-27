@@ -1,28 +1,28 @@
 {
   "categories": [
     {
-      "name": "Taxi",
+      "name": "Hotel",
       "numberOfServices": "3",
       "picture": "hotel",
       "startColor": "#ee497a",
       "endColor": "#f05c88"
     },
     {
-      "name": "Transport1",
+      "name": "Taxi",
       "numberOfServices": "100",
       "picture": "taxi",
       "startColor": "#ff7a51",
       "endColor": "#ff8862"
     },
     {
-      "name": "Transport2",
+      "name": "Transport",
       "numberOfServices": "15",
       "picture": "bicycle",
       "startColor": "#32bdba",
       "endColor": "#45c3c0"
     },
     {
-      "name": "Food",
+      "name": "Delivery",
       "numberOfServices": "3",
       "picture": "utensils",
       "startColor": "#45b64a",
