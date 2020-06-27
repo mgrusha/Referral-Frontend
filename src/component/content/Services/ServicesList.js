@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Service } from "./Service";
-import { SearchBox } from "../SearchBox";
 import { FilterArea } from "./Filter";
-import { useParams } from "react-router-dom";
-
+import { useParams, useLocation } from "react-router-dom";
+import {
+  getServiceByCategoryId,
+  getServiceByServiceName,
+} from "../../../services/ServicesService";
 import styled from "styled-components";
+import { Loader } from "../../generic/Loader";
+import { Error } from "../../generic/Error";
+import { getCategoryIdByName } from "../../../services/CategoryService";
 
 const ServiceHolder = styled.div`
   flex-grow: 3;
@@ -27,83 +32,69 @@ const CategoryHeader = styled.h2`
   font-size: 3rem;
 `;
 
-const Services = [
-  {
-    name: "Booking.com",
-    logo: "Booking.com.jpg",
-    link: "https://www.booking.com/s/35_8/a46d7e72",
-    description:
-      "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
-    rating: 4,
-    shown: 553,
-    id: 1,
-  },
-  {
-    name: "Hotels.com",
-    logo: "hotels-com-logo.jpg",
-    link: "https://refer.hotels.com/x/rQs1mL",
-    description:
-      "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
-    rating: 3,
-    shown: 553,
-
-    id: 2,
-  },
-  {
-    name: "AirBnB",
-    logo: "airbnb.jpg",
-    link:
-      "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
-    description:
-      "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
-    rating: 2,
-    shown: 230,
-
-    id: 4,
-  },
-  {
-    name: "Unknown Hotel",
-    logo: "empty",
-    link: "empty",
-    rating: 4,
-    shown: 10,
-
-    id: 5,
-  },
-];
-
-const ServicesList = ({ title, match }) => {
+const ServicesList = () => {
   let { serviceName } = useParams();
+  let { categoryName } = useParams();
+  let { state } = useLocation();
 
-  const [services, setServices] = useState(
-    Services.filter((service) => service.name.includes(serviceName || ""))
-  );
+  const [isLoaded, toogleIsLoaded] = useState(false);
+  const [error, setError] = useState();
+  const [services, setServices] = useState([]);
+  const [categoryId, setCategoryId] = useState();
 
-  return (
+  //TODO REMOVE UGLY CHECK OF UNKNOWN SERVICE
+  if (state) {
+    setCategoryId(state.categoryId);
+  } else {
+    getCategoryIdByName(categoryName, setCategoryId);
+  }
+
+  useEffect(() => {
+    serviceName
+      ? getServiceByServiceName(
+          serviceName,
+          setServices,
+          toogleIsLoaded,
+          setError
+        )
+      : getServiceByCategoryId(
+          categoryId,
+          setServices,
+          toogleIsLoaded,
+          setError
+        );
+  }, [categoryId]);
+
+  let successLoading = (
     <>
       <CategoryName>
-        <CategoryHeader>Hotels{title}</CategoryHeader>
+        <CategoryHeader>
+          {categoryName ? categoryName : `Results for [${serviceName}]`}
+        </CategoryHeader>
       </CategoryName>
       <CategoryWithFilter>
         <FilterArea />
         <ServiceHolder>
-          {services.map((service) => (
-            <Service
-              key={service.id}
-              name={service.name}
-              logo={service.logo}
-              rating={service.rating}
-              shown={service.shown}
-              isStared={service.isStared}
-              id={service.id}
-              link={service.link}
-              description={service.description}
-            />
-          ))}
+          {(error && <Error error={error} />) ||
+            services.map((service) => (
+              <Service
+                key={service.id}
+                name={service.name}
+                logo={service.logo}
+                rating={service.rating}
+                shown={service.shown}
+                isStared={service.isStared}
+                id={service.id}
+                link={service.link}
+                description={service.description}
+              />
+            ))}
         </ServiceHolder>
       </CategoryWithFilter>
     </>
   );
+
+  return isLoaded ? successLoading : <Loader />;
 };
 
 export { ServicesList };

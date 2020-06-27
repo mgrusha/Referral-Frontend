@@ -47,6 +47,7 @@ const ServicesCount = styled.span`
 
 const Category = ({
   categoryName,
+  categoryId,
   numOfServices,
   picture,
   startColor,
@@ -58,7 +59,12 @@ const Category = ({
     <CategoryWrap
       startColor={startColor}
       endColor={endColor}
-      onClick={() => history.push(`${path}/${categoryName}`)}
+      onClick={() =>
+        history.push({
+          pathname: `${path}/${categoryName}`,
+          state: { categoryId: categoryId },
+        })
+      }
     >
       <CategoryIcon icon={picture} />
       <CategoryTextHolder>

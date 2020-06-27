@@ -24,7 +24,7 @@ const SearchBoxWrapper = styled.div`
 
 const CategoriesList = () => {
   const [categories, setCategories] = useState([]);
-  const [isLoaded, toogleIsLoaded] = useState([false]);
+  const [isLoaded, toogleIsLoaded] = useState(false);
   const [error, setError] = useState();
 
   useEffect(
@@ -47,6 +47,7 @@ const CategoriesList = () => {
               categoryName={element.name}
               startColor={element.startColor}
               endColor={element.endColor}
+              categoryId={element.id}
             />
           ))}
       </CategoriesHolder>

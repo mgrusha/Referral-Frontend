@@ -4,7 +4,6 @@ const getAllCategories = (categoryState, toogleIsLoaded, setError) => {
   fetch(`${BACKEND_URL}/categories`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       categoryState(data);
       toogleIsLoaded(true);
     })
@@ -14,4 +13,14 @@ const getAllCategories = (categoryState, toogleIsLoaded, setError) => {
     });
 };
 
-export { getAllCategories };
+const getCategoryIdByName = (categoryName, setCategoryId) => {
+  fetch(`${BACKEND_URL}/categories`)
+    .then((response) => response.json())
+    .then((data) => {
+      setCategoryId(
+        data.filter((category) => category.name == categoryName)[0].id
+      );
+    });
+};
+
+export { getAllCategories, getCategoryIdByName };

@@ -18,9 +18,11 @@ const Content = () => {
         <Route exact path={`${path}/categories`}>
           <CategoriesList />
         </Route>
-        <Route exact path={`${path}/categories/:categoryname`}>
-          <ServicesList />
-        </Route>
+        <Route
+          exact
+          path={`${path}/categories/:categoryName`}
+          component={ServicesList}
+        ></Route>
         <Route
           exact
           path={`${path}/service/:serviceName`}
