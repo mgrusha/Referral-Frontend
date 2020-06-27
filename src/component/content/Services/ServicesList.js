@@ -42,12 +42,14 @@ const ServicesList = () => {
   const [services, setServices] = useState([]);
   const [categoryId, setCategoryId] = useState();
 
-  //TODO REMOVE UGLY CHECK OF UNKNOWN SERVICE
-  if (state) {
-    setCategoryId(state.categoryId);
-  } else {
-    getCategoryIdByName(categoryName, setCategoryId);
-  }
+  //Not sure if it is right
+  useEffect(() => {
+    if (state) {
+      setCategoryId(state.categoryId);
+    } else {
+      getCategoryIdByName(categoryName, setCategoryId);
+    }
+  }, []);
 
   useEffect(() => {
     serviceName
