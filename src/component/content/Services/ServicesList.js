@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Service } from "./Service";
 import { SearchBox } from "../SearchBox";
 import { FilterArea } from "./Filter";
+import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -71,8 +72,13 @@ const Services = [
   },
 ];
 
-const ServicesList = ({ title }) => {
-  const [services, setServices] = useState(Services);
+const ServicesList = ({ title, match }) => {
+  let { serviceName } = useParams();
+
+  const [services, setServices] = useState(
+    Services.filter((service) => service.name.includes(serviceName || ""))
+  );
+
   return (
     <>
       <CategoryName>

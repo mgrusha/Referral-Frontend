@@ -71,6 +71,7 @@ const CategoriesList = () => {
       endColor: "#bd35ab",
     },
   ]);
+
   return (
     <>
       <SearchBoxWrapper>

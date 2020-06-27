@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const CategoryWrap = styled.div`
   border-radius: 10px;
@@ -51,8 +52,14 @@ const Category = ({
   startColor,
   endColor,
 }) => {
+  let history = useHistory();
+  let { path } = useRouteMatch();
   return (
-    <CategoryWrap startColor={startColor} endColor={endColor}>
+    <CategoryWrap
+      startColor={startColor}
+      endColor={endColor}
+      onClick={() => history.push(`${path}/${categoryName}`)}
+    >
       <CategoryIcon icon={picture} />
       <CategoryTextHolder>
         <CategoryName>{categoryName}</CategoryName>

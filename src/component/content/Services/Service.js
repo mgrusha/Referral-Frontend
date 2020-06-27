@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Rating from "@material-ui/lab/Rating";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import Input from "@material-ui/core/Input";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { Button } from "@material-ui/core";
+
+import { ServiceModal } from "./ServiceModal";
 
 const ServiceWrap = styled.div`
   border-radius: 10px;
@@ -34,13 +30,6 @@ const Picture = styled.div`
   background-position: center;
 `;
 
-const StyledModal = styled(Modal)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--main-font-family);
-`;
-
 const Name = styled.div`
   font-weight: 700;
   font-size: 1.2rem;
@@ -59,28 +48,8 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const ServiceInfo = styled.div`
-  background-color: white;
-  border: 1px solid #000;
-  border-radius: 10px;
-  box-shadow: 0px 0px 6px 6px #fff;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  padding: 3rem;
-  position: relative;
-`;
-
-const CopiedText = styled.h5`
-  color: green;
-  font-size: 1.2rem;
-`;
-
 const Service = ({ name, logo, rating, shown, link, description }) => {
   const [open, setOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [linkToService, setLinkToService] = useState(link);
 
   const handleOpen = () => {
     setOpen(true);
@@ -99,43 +68,20 @@ const Service = ({ name, logo, rating, shown, link, description }) => {
             defaultValue={rating}
             precision={0.5}
             emptyIcon={<StarBorderIcon fontSize="inherit" />}
+            onClick={(e) => e.stopPropagation()}
+            onChange={(e) => e.stopPropagation()}
           />
           <Name>{name}</Name>
           <Shown>{shown} uses</Shown>
         </ContentWrapper>
       </ServiceWrap>
-      <StyledModal
-        aria-labelledby={name}
+      <ServiceModal
+        name={name}
+        description={description}
         open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <ServiceInfo>
-            <h3>{name}</h3>
-            <p>{description}</p>
-            <Rating
-              name="rateService"
-              defaultValue={rating}
-              precision={0.5}
-              emptyIcon={<StarBorderIcon fontSize="inherit" />}
-            />
-            <Input value={linkToService} variant="outlined" />
-
-            <CopyToClipboard
-              text={linkToService}
-              onCopy={() => setCopied(true)}
-            >
-              <Button variant="contained">Copy to clipboard</Button>
-            </CopyToClipboard>
-            {copied && <CopiedText>Copied.</CopiedText>}
-          </ServiceInfo>
-        </Fade>
-      </StyledModal>
+        handleClose={handleClose}
+        linkToService={link}
+      />
     </>
   );
 };
