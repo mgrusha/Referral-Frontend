@@ -77,6 +77,7 @@ const Service = ({ name, logo, rating, shown, link, description }) => {
       </ServiceWrap>
       <ServiceModal
         name={name}
+        logo={logo}
         description={description}
         open={open}
         handleClose={handleClose}

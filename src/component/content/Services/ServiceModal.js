@@ -32,6 +32,7 @@ const ServiceInfo = styled.div`
   display: flex;
   flex-direction: column;
   width: 300px;
+  height: 500px;
   padding: 3rem;
   position: relative;
   & > * {
@@ -65,6 +66,17 @@ const ModalElementHolder = styled.div`
   padding: 0.5rem 0;
 `;
 
+const Picture = styled.div`
+  background-image: url("${(props) =>
+    process.env.PUBLIC_URL + "/static/logos/" + props.picture}
+    ");
+  height: 50%;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
 const ServiceModal = ({
   handleClose,
   open,
@@ -72,6 +84,7 @@ const ServiceModal = ({
   linkToService,
   description,
   name,
+  logo,
 }) => {
   const [copied, setCopied] = useState(false);
   return (
@@ -91,6 +104,7 @@ const ServiceModal = ({
       <Fade in={open}>
         <ServiceInfo>
           <ServiceTitle>{name}</ServiceTitle>
+          <Picture picture={logo} />
           <StyledClose
             onClick={() => {
               handleClose();
