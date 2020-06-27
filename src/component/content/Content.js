@@ -1,19 +1,17 @@
 import React from "react";
-import { SearchBox } from "./SearchBox";
 import { CategoriesList } from "./Category/CategoriesList";
-import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { ServicesList } from "./Services/ServicesList";
-import { ServicePage } from "./Services/ServicePage";
+import styled from "styled-components";
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+const ContentWrap = styled.main`
+  padding-bottom: 5rem;
+`;
 
 const Content = () => {
-  let { path, url } = useRouteMatch();
-  let query = useQuery();
+  let { path } = useRouteMatch();
   return (
-    <div className="container">
+    <ContentWrap className="container">
       <Switch>
         <Route exact path={`${path}/categories`}>
           <CategoriesList />
@@ -29,7 +27,7 @@ const Content = () => {
           component={ServicesList}
         ></Route>
       </Switch>
-    </div>
+    </ContentWrap>
   );
 };
 

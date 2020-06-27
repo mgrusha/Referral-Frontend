@@ -1,10 +1,27 @@
 import React from "react";
+import styled from "styled-components";
+
+const EmailLink = styled.a`
+  color: white;
+  &:active {
+    color: white;
+  }
+
+  &:visited {
+    color: white;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 const Email = () => {
   return (
     <div>
-      <span>EMAIL LOGO</span>
-      <span>My Email</span>
+      <EmailLink href="mailto: mykyta.grusha@gmail.com">
+        mykyta.grusha@gmail.com
+      </EmailLink>
     </div>
   );
 };

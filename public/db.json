@@ -87,7 +87,99 @@
       "shown": 230,
       "categoryId": 1,
 
-      "id": 4
+      "id": 3
+    },
+    {
+      "name": "Booking.com",
+      "logo": "Booking.com.jpg",
+      "link": "https://www.booking.com/s/35_8/a46d7e72",
+      "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
+      "rating": 4,
+      "shown": 553,
+      "id": 4,
+      "categoryId": 1
+    },
+    {
+      "name": "Hotels.com",
+      "logo": "hotels-com-logo.jpg",
+      "link": "https://refer.hotels.com/x/rQs1mL",
+      "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
+      "rating": 3,
+      "shown": 553,
+      "categoryId": 1,
+      "id": 5
+    },
+    {
+      "name": "AirBnB",
+      "logo": "airbnb.jpg",
+      "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
+      "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
+      "rating": 2,
+      "shown": 230,
+      "categoryId": 1,
+
+      "id": 6
+    },
+    {
+      "name": "Booking.com",
+      "logo": "Booking.com.jpg",
+      "link": "https://www.booking.com/s/35_8/a46d7e72",
+      "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
+      "rating": 4,
+      "shown": 553,
+      "id": 1,
+      "categoryId": 7
+    },
+    {
+      "name": "Hotels.com",
+      "logo": "hotels-com-logo.jpg",
+      "link": "https://refer.hotels.com/x/rQs1mL",
+      "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
+      "rating": 3,
+      "shown": 553,
+      "categoryId": 1,
+      "id": 8
+    },
+    {
+      "name": "AirBnB",
+      "logo": "airbnb.jpg",
+      "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
+      "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
+      "rating": 2,
+      "shown": 230,
+      "categoryId": 1,
+      "id": 9
+    },
+    {
+      "name": "Booking.com",
+      "logo": "Booking.com.jpg",
+      "link": "https://www.booking.com/s/35_8/a46d7e72",
+      "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
+      "rating": 4,
+      "shown": 553,
+      "id": 10,
+      "categoryId": 1
+    },
+    {
+      "name": "Hotels.com",
+      "logo": "hotels-com-logo.jpg",
+      "link": "https://refer.hotels.com/x/rQs1mL",
+      "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
+      "rating": 3,
+      "shown": 553,
+      "categoryId": 1,
+      "id": 11
+    },
+    {
+      "name": "AirBnB",
+      "logo": "airbnb.jpg",
+      "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
+      "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
+      "rating": 2,
+      "shown": 230,
+      "categoryId": 1,
+
+      "id": 12
     },
     {
       "name": "Unknown Hotel",
@@ -96,8 +188,7 @@
       "rating": 4,
       "shown": 10,
       "categoryId": 1,
-
-      "id": 5
+      "id": 13
     }
   ]
 }

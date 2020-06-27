@@ -62,10 +62,6 @@ const StyledDescription = styled.p`
   font-size: 0.9rem;
 `;
 
-const ModalElementHolder = styled.div`
-  padding: 0.5rem 0;
-`;
-
 const Picture = styled.div`
   background-image: url("${(props) =>
     process.env.PUBLIC_URL + "/static/logos/" + props.picture}
