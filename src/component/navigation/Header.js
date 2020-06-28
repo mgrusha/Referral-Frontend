@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { LoginIcon } from "./LoginIcon";
 import { FullLogo } from "../generic/Logo";
 import { SearchBox } from "../content/SearchBox";
+import { validateUserCredentials } from "../../services/UserService";
 
 const HeaderContainer = styled.header`
   background-color: var(--header-color);
@@ -31,39 +32,36 @@ const SearchBoxWrapper = styled.div`
   }
 `;
 
-const Header = (props) => {
+const Header = () => {
   let history = useHistory();
 
-  const [loggedStatus, setLoggedStatus] = useState(true);
   const [loggedUser, setLoggedUser] = useState({
-    firstName: "Guy",
-    lastName: "Fox",
-    userName: "Anonymus",
-    avatar: "avatar.jpg",
+    loggedStatus: Boolean(localStorage.getItem("user")),
+    user: JSON.parse(localStorage.getItem("user")),
   });
 
+  const loginSucced = (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
+    setLoggedUser({ loggedStatus: true, user: user });
+  };
+
+  const loginFailed = (login) => {
+    history.push({
+      pathname: "/login",
+      state: {
+        userName: login,
+        initialError: "Incorrect username or password",
+      },
+    });
+  };
+
   const logIn = (login, password) => {
-    if (login === "Anonymus" && password === "password") {
-      setLoggedStatus(true);
-      setLoggedUser({
-        firstName: "Guy",
-        lastName: "Fox",
-        userName: "Anonymus",
-        avatar: "avatar.jpg",
-      });
-    } else {
-      history.push({
-        pathname: "/login",
-        state: {
-          userName: login,
-          initialError: "Incorrect username or password",
-        },
-      });
-    }
+    validateUserCredentials(login, password, loginSucced, loginFailed);
   };
 
   const logOut = () => {
-    setLoggedStatus(false);
+    setLoggedUser({ loggedStatus: false, user: {} });
+    localStorage.clear();
   };
 
   return (
@@ -73,8 +71,12 @@ const Header = (props) => {
         <SearchBoxWrapper>
           <SearchBox />
         </SearchBoxWrapper>
-        {loggedStatus ? (
-          <UserIcon loggedUser={loggedUser} logOut={logOut} />
+        {loggedUser.loggedStatus ? (
+          <UserIcon
+            loggedUser={loggedUser.user}
+            logOut={logOut}
+            logIn={logIn}
+          />
         ) : (
           <LoginIcon logIn={logIn} />
         )}

@@ -1,4 +1,34 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "userName": "Producer1",
+      "password": "test",
+      "email": "producer1@email.com",
+      "firstName": "John",
+      "lastName": "Galt",
+      "avatar": "avatar.jpg"
+    },
+    {
+      "id": 2,
+      "password": "test",
+      "userName": "TestUser",
+      "email": "testUser@email.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "avatar": ""
+    },
+    {
+      "id": 3,
+      "password": "test",
+      "userName": "GuestUser",
+      "email": "guest@email.com",
+      "firstName": "My",
+      "lastName": "guest",
+      "avatar": ""
+    }
+  ],
+
   "categories": [
     {
       "id": 1,

@@ -3,13 +3,21 @@ import { Button } from "../generic/Button";
 import Menu from "@material-ui/core/Menu";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
-import MaterialButton from "@material-ui/core/Button";
+import { FormButton } from "../generic/Button";
 import { useHistory } from "react-router-dom";
 
 const FieldBox = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
+`;
+
+const MenuItem = styled.div`
+  padding: 0.5rem 0;
+  width: 100%;
+  & > button {
+    width: 100%;
+  }
 `;
 
 export const LoginIcon = ({ logIn }) => {
@@ -38,9 +46,10 @@ export const LoginIcon = ({ logIn }) => {
   const handleLogIn = () => {
     logIn(login, password);
   };
+
   return (
     <div>
-      <Button onClick={handleClick}>{!anchorEl && "Login"}</Button>
+      <Button onClick={handleClick}>Login</Button>
       <Menu
         elevation={0}
         getContentAnchorEl={null}
@@ -52,49 +61,62 @@ export const LoginIcon = ({ logIn }) => {
           vertical: "top",
           horizontal: "center",
         }}
-        id="customized-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
         <FieldBox>
-          <TextField
-            id="loginField"
-            label="Username"
-            variant="outlined"
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
-            tabIndex={0}
-          />
-          <TextField
-            id="passwordField"
-            label="Password"
-            variant="outlined"
-            type="password"
-            value={password}
-            tabIndex={1}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <MaterialButton
-            variant="contained"
-            onClick={handleLogIn}
-            tabIndex={3}
-            disabled={IsButtonDisabled}
-          >
-            Login
-          </MaterialButton>
-          <MaterialButton
-            variant="contained"
-            tabIndex={4}
-            onClick={() =>
-              history.push({
-                pathname: "/register",
-              })
-            }
-          >
-            Register
-          </MaterialButton>
+          <MenuItem>
+            <TextField
+              id="loginField"
+              label="Username"
+              variant="outlined"
+              value={login}
+              onChange={(e) => {
+                e.stopPropagation();
+                setLogin(e.target.value);
+              }}
+              tabIndex={0}
+            />
+          </MenuItem>
+          <MenuItem>
+            <TextField
+              id="passwordField"
+              label="Password"
+              variant="outlined"
+              type="password"
+              value={password}
+              tabIndex={1}
+              onChange={(e) => {
+                e.stopPropagation();
+                setPassword(e.target.value);
+              }}
+            />
+          </MenuItem>
+          <MenuItem>
+            <FormButton
+              variant="contained"
+              onClick={handleLogIn}
+              tabIndex={3}
+              disabled={IsButtonDisabled}
+            >
+              Login
+            </FormButton>
+          </MenuItem>
+          <MenuItem>
+            <FormButton
+              variant="contained"
+              tabIndex={4}
+              onClick={() =>
+                history.push({
+                  pathname: "/register",
+                })
+              }
+            >
+              Register
+            </FormButton>
+          </MenuItem>
         </FieldBox>
       </Menu>
     </div>

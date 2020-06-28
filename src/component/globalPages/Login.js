@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { FullLogo } from "../generic/Logo";
 import { FormButton } from "../generic/Button";
+import { validateUserCredentials } from "../../services/UserService";
 
 const LoginForm = styled.form`
   display: flex;
@@ -65,14 +66,20 @@ export const Login = (props) => {
     }
   }, [userName, password]);
 
+  const loginSucced = (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
+    history.push({
+      pathname: "/home/categories",
+    });
+  };
+
+  const loginFailed = () => {
+    setError(true);
+    setHelperText("Incorrect username or password");
+  };
+
   const handleLogin = () => {
-    if (userName === "abc@email.com" && password === "password") {
-      setError(false);
-      setHelperText("Login Successfully");
-    } else {
-      setError(true);
-      setHelperText("Incorrect username or password");
-    }
+    validateUserCredentials(userName, password, loginSucced, loginFailed);
   };
 
   const handleKeyPress = (e) => {
@@ -108,6 +115,7 @@ export const Login = (props) => {
                 fullWidth
                 id="password"
                 variant="outlined"
+                type="password"
                 label="Password"
                 placeholder="Password"
                 margin="normal"

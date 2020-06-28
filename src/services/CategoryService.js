@@ -14,12 +14,11 @@ const getAllCategories = (categoryState, toogleIsLoaded, setError) => {
 };
 
 const getCategoryIdByName = (categoryName, setCategoryId) => {
-  fetch(`${BACKEND_URL}/categories`)
+  fetch(`${BACKEND_URL}/categories?name=${categoryName}`)
     .then((response) => response.json())
     .then((data) => {
-      setCategoryId(
-        data.filter((category) => category.name == categoryName)[0].id
-      );
+      console.log(data);
+      setCategoryId(data[0].id);
     });
 };
 
