@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Service } from "./Service";
-import { FilterArea } from "./Filter";
+import { FilterArea } from "./Filter/Filter";
 import { useParams, useLocation } from "react-router-dom";
 import {
   getServiceByCategoryId,
@@ -15,6 +15,7 @@ const ServiceHolder = styled.div`
   flex-grow: 3;
   flex-wrap: wrap;
   display: flex;
+  justify-content: space-around;
 `;
 
 const CategoryWithFilter = styled.main`

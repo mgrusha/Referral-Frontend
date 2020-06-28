@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "@material-ui/core";
 
 const RoundButton = styled.button`
   font-size: 1.5rem;
@@ -25,8 +26,18 @@ const RoundButton = styled.button`
   }
 `;
 
-const Button = (props) => {
+const HeaderButton = (props) => {
   return <RoundButton onClick={props.onClick}>{props.children}</RoundButton>;
 };
 
-export { Button };
+const FormButton = styled(Button)`
+  && {
+    background-color: var(--header-color);
+    color: white;
+    &:hover {
+      background-color: var(--header-hover-button-color);
+    }
+  }
+`;
+
+export { HeaderButton as Button, FormButton };

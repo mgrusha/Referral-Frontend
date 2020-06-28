@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { FullLogo } from "../generic/Logo";
+import { FormButton } from "../generic/Button";
 
 const LoginForm = styled.form`
   display: flex;
@@ -119,15 +119,15 @@ export const Login = (props) => {
             </div>
           </CardContent>
           <StyledCardActions>
-            <Button
+            <FormButton
               variant="contained"
               size="large"
               onClick={() => handleLogin()}
               disabled={isButtonDisabled}
             >
               Login
-            </Button>
-            <Button
+            </FormButton>
+            <FormButton
               variant="contained"
               size="large"
               onClick={() =>
@@ -137,7 +137,7 @@ export const Login = (props) => {
               }
             >
               SIGN UP
-            </Button>
+            </FormButton>
           </StyledCardActions>
         </Card>
       </LoginForm>

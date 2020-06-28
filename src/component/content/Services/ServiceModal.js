@@ -9,6 +9,7 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Rating from "@material-ui/lab/Rating";
 import styled from "styled-components";
 import CloseRounded from "@material-ui/icons/CloseRounded";
+import { FormButton } from "../../generic/Button";
 
 const StyledModal = styled(Modal)`
   display: flex;
@@ -119,9 +120,9 @@ const ServiceModal = ({
           <Input value={linkToService} variant="outlined" />
 
           <CopyToClipboard text={linkToService} onCopy={() => setCopied(true)}>
-            <Button variant="contained">Copy to clipboard</Button>
+            <FormButton variant="contained">Copy to clipboard</FormButton>
           </CopyToClipboard>
-          {copied && <CopiedText>Copied.</CopiedText>}
+          <CopiedText>&nbsp;{copied && "Copied."}</CopiedText>
         </ServiceInfo>
       </Fade>
     </StyledModal>
