@@ -13,7 +13,7 @@ import { validateUserCredentials } from "../../services/UserService";
 const LoginForm = styled.form`
   display: flex;
   flexwrap: wrap;
-
+  font-family: var(--main-font-family);
   margin: 0 auto;
 `;
 

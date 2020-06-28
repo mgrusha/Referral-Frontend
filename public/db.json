@@ -26,9 +26,56 @@
       "firstName": "My",
       "lastName": "guest",
       "avatar": ""
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "confirmPassword": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "TESTER",
+      "lastName": "TESTER",
+      "avatar": "",
+      "id": 4
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "confirmPassword": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "123123123",
+      "lastName": "12312312",
+      "avatar": "",
+      "id": 5
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "confirmPassword": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "123123",
+      "lastName": "123123",
+      "avatar": "",
+      "id": 6
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "123123",
+      "lastName": "12312312",
+      "avatar": "",
+      "id": 7
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "123123",
+      "lastName": "12312312",
+      "avatar": "",
+      "id": 8
     }
   ],
-
   "categories": [
     {
       "id": 1,
@@ -116,7 +163,6 @@
       "rating": 2,
       "shown": 230,
       "categoryId": 1,
-
       "id": 3
     },
     {
@@ -147,7 +193,6 @@
       "rating": 2,
       "shown": 230,
       "categoryId": 1,
-
       "id": 6
     },
     {
@@ -208,7 +253,6 @@
       "rating": 2,
       "shown": 230,
       "categoryId": 1,
-
       "id": 12
     },
     {

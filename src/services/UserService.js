@@ -14,7 +14,25 @@ const validateUserCredentials = (
       } else {
         loginFailed(userName);
       }
-    });
+    })
+    .catch(() => loginFailed(userName));
 };
 
-export { validateUserCredentials };
+const addUser = (user, createSucceed, createFailed) => {
+  fetch(`${BACKEND_URL}/users`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      createSucceed();
+    })
+    .catch((error) => createFailed(error));
+};
+
+export { validateUserCredentials, addUser };
