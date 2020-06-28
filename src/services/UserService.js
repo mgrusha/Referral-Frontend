@@ -29,8 +29,7 @@ const addUser = (user, createSucceed, createFailed) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      createSucceed();
+      createSucceed(data);
     })
     .catch((error) => createFailed(error));
 };

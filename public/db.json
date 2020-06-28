@@ -74,6 +74,24 @@
       "lastName": "12312312",
       "avatar": "",
       "id": 8
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "3242",
+      "lastName": "234234",
+      "avatar": "",
+      "id": 9
+    },
+    {
+      "userName": "asdasd",
+      "password": "asdasd",
+      "email": "asdasd@asdas",
+      "firstName": "asdasd",
+      "lastName": "asdasd",
+      "avatar": "",
+      "id": 10
     }
   ],
   "categories": [

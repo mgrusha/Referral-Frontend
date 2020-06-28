@@ -48,7 +48,7 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Service = ({ name, logo, rating, shown, link, description }) => {
+const Service = ({ id, name, logo, rating, shown, link, description }) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {

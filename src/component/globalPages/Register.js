@@ -99,7 +99,7 @@ export const Register = (props) => {
     return newErrors.length;
   };
 
-  const succesfulLogin = () => {
+  const succesfulLogin = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
     history.push({
       pathname: "/home/categories",
