@@ -8,6 +8,7 @@ const getAllCategories = (categoryState, toogleIsLoaded, setError) => {
       toogleIsLoaded(true);
     })
     .catch((error) => {
+      categoryState([]);
       setError(error);
       toogleIsLoaded(true);
     });

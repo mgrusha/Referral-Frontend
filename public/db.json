@@ -1,0 +1,217 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "Producer1",
+      "password": "test",
+      "email": "producer1@email.com",
+      "firstName": "John",
+      "lastName": "Galt",
+      "avatar": "avatar.jpg"
+    },
+    {
+      "id": 2,
+      "password": "test",
+      "userName": "TestUser",
+      "email": "testUser@email.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "avatar": ""
+    },
+    {
+      "id": 3,
+      "password": "test",
+      "userName": "GuestUser",
+      "email": "guest@email.com",
+      "firstName": "My",
+      "lastName": "guest",
+      "avatar": ""
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "123123",
+      "lastName": "12312312",
+      "avatar": "",
+      "id": 8
+    },
+    {
+      "userName": "Mykyta",
+      "password": "Mykyta",
+      "email": "grushman@gmail.com",
+      "firstName": "3242",
+      "lastName": "234234",
+      "avatar": "",
+      "id": 9
+    },
+    {
+      "userName": "asdasd",
+      "password": "asdasd",
+      "email": "asdasd@asdas",
+      "firstName": "asdasd",
+      "lastName": "asdasd",
+      "avatar": "",
+      "id": 10
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Hotel",
+      "numberOfServices": "3",
+      "picture": "hotel",
+      "startColor": "#ee497a",
+      "endColor": "#f05c88"
+    },
+    {
+      "id": 2,
+      "name": "Taxi",
+      "numberOfServices": "100",
+      "picture": "taxi",
+      "startColor": "#ff7a51",
+      "endColor": "#ff8862"
+    },
+    {
+      "id": 3,
+      "name": "Transport",
+      "numberOfServices": "15",
+      "picture": "bicycle",
+      "startColor": "#32bdba",
+      "endColor": "#45c3c0"
+    },
+    {
+      "id": 4,
+      "name": "Delivery",
+      "numberOfServices": "3",
+      "picture": "utensils",
+      "startColor": "#45b64a",
+      "endColor": "#58bd5d"
+    },
+    {
+      "id": 5,
+      "name": "Transport3",
+      "numberOfServices": "30",
+      "picture": "hotel",
+      "startColor": "#aeb844",
+      "endColor": "#b9c452"
+    },
+    {
+      "id": 6,
+      "name": "Travel",
+      "numberOfServices": "30",
+      "picture": "hotel",
+      "startColor": "#425ab8",
+      "endColor": "#596cba"
+    },
+    {
+      "id": 7,
+      "name": "Travel1",
+      "numberOfServices": "30",
+      "picture": "hotel",
+      "startColor": "#bf58b1",
+      "endColor": "#bd35ab"
+    }
+  ],
+  "services": [
+    {
+      "name": "Booking.com",
+      "logo": "Booking.com.jpg",
+      "link": "https://www.booking.com/s/35_8/a46d7e72",
+      "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
+      "rating": 4,
+      "shown": 553,
+      "id": 1,
+      "categoryId": 1
+    },
+    {
+      "name": "Hotels.com",
+      "logo": "hotels-com-logo.jpg",
+      "link": "https://refer.hotels.com/x/rQs1mL",
+      "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
+      "rating": 3,
+      "shown": 553,
+      "categoryId": 1,
+      "id": 2
+    },
+    {
+      "name": "AirBnB",
+      "logo": "airbnb.jpg",
+      "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
+      "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
+      "rating": 2,
+      "shown": 230,
+      "categoryId": 1,
+      "id": 3
+    },
+    {
+      "name": "Booking.com",
+      "logo": "Booking.com.jpg",
+      "link": "https://www.booking.com/s/35_8/a46d7e72",
+      "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
+      "rating": 4,
+      "shown": 553,
+      "id": 4,
+      "categoryId": 1
+    },
+    {
+      "name": "Hotels.com",
+      "logo": "hotels-com-logo.jpg",
+      "link": "https://refer.hotels.com/x/rQs1mL",
+      "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
+      "rating": 3,
+      "shown": 553,
+      "categoryId": 1,
+      "id": 5
+    },
+    {
+      "name": "AirBnB",
+      "logo": "airbnb.jpg",
+      "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
+      "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
+      "rating": 2,
+      "shown": 230,
+      "categoryId": 1,
+      "id": 6
+    },
+    {
+      "name": "Booking.com",
+      "logo": "Booking.com.jpg",
+      "link": "https://www.booking.com/s/35_8/a46d7e72",
+      "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
+      "rating": 4,
+      "shown": 553,
+      "id": 1,
+      "categoryId": 7
+    },
+    {
+      "name": "Hotels.com",
+      "logo": "hotels-com-logo.jpg",
+      "link": "https://refer.hotels.com/x/rQs1mL",
+      "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
+      "rating": 3,
+      "shown": 553,
+      "categoryId": 1,
+      "id": 8
+    },
+    {
+      "name": "AirBnB",
+      "logo": "airbnb.jpg",
+      "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
+      "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
+      "rating": 2,
+      "shown": 230,
+      "categoryId": 1,
+      "id": 9
+    },
+    {
+      "name": "Unknown Hotel",
+      "logo": "empty",
+      "link": "empty",
+      "rating": 4,
+      "shown": 10,
+      "categoryId": 1,
+      "id": 13
+    }
+  ]
+}
