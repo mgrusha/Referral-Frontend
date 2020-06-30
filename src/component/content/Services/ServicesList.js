@@ -41,6 +41,7 @@ const ServicesList = () => {
   const [isLoaded, toogleIsLoaded] = useState(false);
   const [error, setError] = useState();
   const [services, setServices] = useState([]);
+  const [servicesToDisplay, setServicesToDisplay] = useState([]);
   const [categoryId, setCategoryId] = useState();
 
   //Not sure if it is right
@@ -68,6 +69,8 @@ const ServicesList = () => {
         );
   }, [categoryId]);
 
+  useEffect(() => setServicesToDisplay(services), [services]);
+
   let successLoading = (
     <>
       <CategoryName>
@@ -76,10 +79,10 @@ const ServicesList = () => {
         </CategoryHeader>
       </CategoryName>
       <CategoryWithFilter>
-        <FilterArea />
+        <FilterArea services={services} setServices={setServicesToDisplay} />
         <ServiceHolder>
           {(error && <Error error={error} />) ||
-            services.map((service) => (
+            servicesToDisplay.map((service) => (
               <Service
                 key={service.id}
                 id={service.id}
