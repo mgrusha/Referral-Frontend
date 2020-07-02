@@ -51,49 +51,76 @@ const getServiceByServiceName = (
     });
 };
 
+//old correct way with view or more tables
 const rateForService = (rate, userId, serviceId) => {
-  fetch(`${BACKEND_URL}/ratings?userid=${userId}&serviceId=${serviceId}`)
+  fetch(`${BACKEND_URL}/services?serviceId=${serviceId}`)
     .then((response) => response.json())
     .then((data) => {
-      if (data.length && data.length !== 0) {
-        fetch(`${BACKEND_URL}/ratings/${data[0].id}`, {
-          method: "PUT",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userid: userId,
-            serviceId: serviceId,
-            rate: rate,
-            timestamp: Date.now(),
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Rate changed:", data);
-          });
-      } else {
-        fetch(`${BACKEND_URL}/ratings`, {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userid: userId,
-            serviceId: serviceId,
-            rate: rate,
-            timestamp: Date.now(),
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Rate added:", data);
-          });
-      }
+      console.log(data[0]);
+      const newRateArray = data[0].ratings.filter(
+        (rating) => rating.userId !== userId
+      );
+      console.log([...newRateArray, { userId: userId, rating: rate }]);
+      fetch(`${BACKEND_URL}/services/${serviceId}`, {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ratings: [...newRateArray, { userId: userId, rating: rate }],
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Rate changed:", data);
+        });
     });
 };
+
+// const rateForService = (rate, userId, serviceId) => {
+//   fetch(`${BACKEND_URL}/ratings?userid=${userId}&serviceId=${serviceId}`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       if (data.length && data.length !== 0) {
+//         fetch(`${BACKEND_URL}/ratings/${data[0].id}`, {
+//           method: "PUT",
+//           headers: {
+//             Accept: "application/json",
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify({
+//             userid: userId,
+//             serviceId: serviceId,
+//             rate: rate,
+//             timestamp: Date.now(),
+//           }),
+//         })
+//           .then((response) => response.json())
+//           .then((data) => {
+//             console.log("Rate changed:", data);
+//           });
+//       } else {
+//         fetch(`${BACKEND_URL}/ratings`, {
+//           method: "POST",
+//           headers: {
+//             Accept: "application/json",
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify({
+//             userid: userId,
+//             serviceId: serviceId,
+//             rate: rate,
+//             timestamp: Date.now(),
+//           }),
+//         })
+//           .then((response) => response.json())
+//           .then((data) => {
+//             console.log("Rate added:", data);
+//           });
+//       }
+//     });
+// };
 
 export {
   getServiceByCategoryId,

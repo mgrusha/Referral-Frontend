@@ -63,7 +63,7 @@ const Service = ({
 
   useEffect(() => {
     if (rating && rating !== initialRating) {
-      rateForService(rating, 3, id);
+      rateForService(rating, JSON.parse(localStorage.getItem("user")).id, id);
     }
   }, [rating]);
 

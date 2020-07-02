@@ -119,7 +119,23 @@
       "logo": "Booking.com.jpg",
       "link": "https://www.booking.com/s/35_8/a46d7e72",
       "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
-      "rating": 4,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 3
+        },
+        {
+          "rating": 5
+        },
+        {
+          "userId": 1,
+          "rating": 1
+        },
+        {
+          "userId": 2,
+          "rating": 5
+        }
+      ],
       "shown": 553,
       "id": 1,
       "categoryId": 1
@@ -129,7 +145,12 @@
       "logo": "hotels-com-logo.jpg",
       "link": "https://refer.hotels.com/x/rQs1mL",
       "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
-      "rating": 3,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 2
+        }
+      ],
       "shown": 553,
       "categoryId": 1,
       "id": 2
@@ -139,7 +160,12 @@
       "logo": "airbnb.jpg",
       "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
       "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
-      "rating": 2,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 1
+        }
+      ],
       "shown": 230,
       "categoryId": 1,
       "id": 3
@@ -149,7 +175,12 @@
       "logo": "Booking.com.jpg",
       "link": "https://www.booking.com/s/35_8/a46d7e72",
       "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
-      "rating": 4,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 4
+        }
+      ],
       "shown": 553,
       "id": 4,
       "categoryId": 1
@@ -159,7 +190,12 @@
       "logo": "hotels-com-logo.jpg",
       "link": "https://refer.hotels.com/x/rQs1mL",
       "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
-      "rating": 3,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 1
+        }
+      ],
       "shown": 553,
       "categoryId": 1,
       "id": 5
@@ -169,7 +205,12 @@
       "logo": "airbnb.jpg",
       "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
       "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
-      "rating": 2,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 4
+        }
+      ],
       "shown": 230,
       "categoryId": 1,
       "id": 6
@@ -179,7 +220,12 @@
       "logo": "Booking.com.jpg",
       "link": "https://www.booking.com/s/35_8/a46d7e72",
       "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
-      "rating": 4,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 4.5
+        }
+      ],
       "shown": 553,
       "id": 1,
       "categoryId": 7
@@ -189,7 +235,12 @@
       "logo": "hotels-com-logo.jpg",
       "link": "https://refer.hotels.com/x/rQs1mL",
       "description": "Referee : save £50 by entering one of our referral codes (Referrer : £50 reward as well) ",
-      "rating": 3,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 4
+        }
+      ],
       "shown": 553,
       "categoryId": 1,
       "id": 8
@@ -199,7 +250,12 @@
       "logo": "airbnb.jpg",
       "link": "https://www.airbnb.com/c/1ec1f1?currency=PLN&referral_share_id=ab6cd194-7b88-4014-a39c-72a2d3d13b0c",
       "description": "Get £50 by using one of our referral link when subscribing (referrers: get £100) ",
-      "rating": 2,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 2
+        }
+      ],
       "shown": 230,
       "categoryId": 1,
       "id": 9
@@ -208,7 +264,12 @@
       "name": "Unknown Hotel",
       "logo": "empty",
       "link": "empty",
-      "rating": 4,
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 4
+        }
+      ],
       "shown": 10,
       "categoryId": 1,
       "id": 13
@@ -221,69 +282,6 @@
       "serviceId": 1,
       "rate": 4,
       "timestamp": 1593618247
-    },
-    {
-      "userid": 3,
-      "serviceId": 1,
-      "rate": 0.5,
-      "timestamp": 1593721754661,
-      "id": 2
-    },
-    {
-      "userid": 3,
-      "serviceId": 3,
-      "rate": 2,
-      "timestamp": 1593721693863,
-      "id": 3
-    },
-    {
-      "userid": 3,
-      "serviceId": 4,
-      "rate": 4,
-      "timestamp": 1593721693864,
-      "id": 4
-    },
-    {
-      "userid": 3,
-      "serviceId": 6,
-      "rate": 2,
-      "timestamp": 1593721675741,
-      "id": 5
-    },
-    {
-      "userid": 3,
-      "serviceId": 8,
-      "rate": 3,
-      "timestamp": 1593721675742,
-      "id": 6
-    },
-    {
-      "userid": 3,
-      "serviceId": 13,
-      "rate": 4,
-      "timestamp": 1593721675745,
-      "id": 7
-    },
-    {
-      "userid": 3,
-      "serviceId": 9,
-      "rate": 2,
-      "timestamp": 1593721675743,
-      "id": 8
-    },
-    {
-      "userid": 3,
-      "serviceId": 2,
-      "rate": 3,
-      "timestamp": 1593721693863,
-      "id": 9
-    },
-    {
-      "userid": 3,
-      "serviceId": 5,
-      "rate": 3,
-      "timestamp": 1593721675749,
-      "id": 10
     }
   ]
 }

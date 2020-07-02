@@ -87,7 +87,12 @@ const ServicesList = () => {
                 key={service.id}
                 name={service.name}
                 logo={service.logo}
-                initialRating={service.rating}
+                initialRating={
+                  service.ratings.reduce(
+                    (sum, elem) => (sum += elem.rating),
+                    0
+                  ) / service.ratings.length
+                }
                 shown={service.shown}
                 isStared={service.isStared}
                 id={service.id}
