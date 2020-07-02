@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Rating from "@material-ui/lab/Rating";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 
 import { ServiceModal } from "./ServiceModal";
+import { rateForService } from "../../../services/ServicesService";
 
 const ServiceWrap = styled.div`
   border-radius: 10px;
@@ -48,8 +49,23 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Service = ({ id, name, logo, rating, shown, link, description }) => {
+const Service = ({
+  id,
+  name,
+  logo,
+  initialRating,
+  shown,
+  link,
+  description,
+}) => {
   const [open, setOpen] = useState(false);
+  const [rating, setRating] = useState(initialRating);
+
+  useEffect(() => {
+    if (rating && rating !== initialRating) {
+      rateForService(rating, 3, id);
+    }
+  }, [rating]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -58,18 +74,25 @@ const Service = ({ id, name, logo, rating, shown, link, description }) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleRateChange = (e, newValue) => {
+    e.stopPropagation();
+    setRating(newValue);
+  };
+
   return (
     <>
       <ServiceWrap onClick={handleOpen}>
         <Picture picture={logo} />
         <ContentWrapper>
           <Rating
-            name="rateService"
+            name={"rateService" + id}
             defaultValue={rating}
             precision={0.5}
             emptyIcon={<StarBorderIcon fontSize="inherit" />}
+            value={rating}
+            onChange={handleRateChange}
             onClick={(e) => e.stopPropagation()}
-            onChange={(e) => e.stopPropagation()}
           />
           <Name>{name}</Name>
           <Shown>{shown} uses</Shown>
@@ -82,6 +105,9 @@ const Service = ({ id, name, logo, rating, shown, link, description }) => {
         open={open}
         handleClose={handleClose}
         linkToService={link}
+        handleRateChange={handleRateChange}
+        id={id}
+        rating={rating}
       />
     </>
   );

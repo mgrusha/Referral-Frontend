@@ -85,10 +85,9 @@ const ServicesList = () => {
             servicesToDisplay.map((service) => (
               <Service
                 key={service.id}
-                id={service.id}
                 name={service.name}
                 logo={service.logo}
-                rating={service.rating}
+                initialRating={service.rating}
                 shown={service.shown}
                 isStared={service.isStared}
                 id={service.id}

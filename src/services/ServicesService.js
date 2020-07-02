@@ -51,4 +51,53 @@ const getServiceByServiceName = (
     });
 };
 
-export { getServiceByCategoryId, getAllServices, getServiceByServiceName };
+const rateForService = (rate, userId, serviceId) => {
+  fetch(`${BACKEND_URL}/ratings?userid=${userId}&serviceId=${serviceId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.length && data.length !== 0) {
+        fetch(`${BACKEND_URL}/ratings/${data[0].id}`, {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userid: userId,
+            serviceId: serviceId,
+            rate: rate,
+            timestamp: Date.now(),
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Rate changed:", data);
+          });
+      } else {
+        fetch(`${BACKEND_URL}/ratings`, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userid: userId,
+            serviceId: serviceId,
+            rate: rate,
+            timestamp: Date.now(),
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Rate added:", data);
+          });
+      }
+    });
+};
+
+export {
+  getServiceByCategoryId,
+  getAllServices,
+  getServiceByServiceName,
+  rateForService,
+};

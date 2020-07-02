@@ -74,7 +74,7 @@ const FilterArea = ({ services, setServices }) => {
           name="customized-empty"
           value={starRate}
           precision={0.5}
-          onChange={(e) => setStarRate(e.target.value)}
+          onChange={(e, currentValue) => setStarRate(currentValue)}
           emptyIcon={<StarBorderIcon fontSize="inherit" />}
         />
       </div>

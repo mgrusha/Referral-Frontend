@@ -213,5 +213,105 @@
       "categoryId": 1,
       "id": 13
     }
+  ],
+  "ratings": [
+    {
+      "id": 1,
+      "userid": 1,
+      "serviceId": 1,
+      "rate": 4,
+      "timestamp": 1593618247
+    },
+    {
+      "userid": 1,
+      "serviceId": 1,
+      "rate": 2,
+      "timestamp": 1593710746581,
+      "id": 2
+    },
+    {
+      "userid": 1,
+      "serviceId": 4,
+      "rate": 2.5,
+      "timestamp": 1593711809554,
+      "id": 3
+    },
+    {
+      "userid": 1,
+      "serviceId": 4,
+      "rate": 2,
+      "timestamp": 1593711814838,
+      "id": 4
+    },
+    {
+      "userid": 1,
+      "serviceId": 1,
+      "rate": 2.5,
+      "timestamp": 1593711935035,
+      "id": 5
+    },
+    {
+      "userid": 1,
+      "serviceId": 4,
+      "rate": 5,
+      "timestamp": 1593711954731,
+      "id": 6
+    },
+    {
+      "userid": 1,
+      "serviceId": 4,
+      "rate": 2,
+      "timestamp": 1593711965696,
+      "id": 7
+    },
+    {
+      "userid": 1,
+      "serviceId": 4,
+      "rate": 2,
+      "timestamp": 1593719033402,
+      "id": 8
+    },
+    {
+      "userid": 3,
+      "serviceId": 4,
+      "rate": 1.5,
+      "timestamp": 1593719655298,
+      "id": 9
+    },
+    {
+      "userid": 3,
+      "serviceId": 1,
+      "rate": null,
+      "timestamp": 1593712476588,
+      "id": 10
+    },
+    {
+      "userid": 3,
+      "serviceId": 1,
+      "rate": 2,
+      "timestamp": 1593718387785,
+      "id": 11
+    },
+    {
+      "userid": 3,
+      "serviceId": 1,
+      "rate": 3.5,
+      "timestamp": 1593718390975,
+      "id": 12
+    },
+    {
+      "userid": 3,
+      "serviceId": 13,
+      "rate": 2.5,
+      "timestamp": 1593719484299,
+      "id": 13
+    },
+    {
+      "userid": 3,
+      "serviceId": 13,
+      "rate": 2.5,
+      "timestamp": 1593718685326,
+      "id": 14
+    }
   ]
 }

@@ -75,6 +75,8 @@ const Picture = styled.div`
 `;
 
 const ServiceModal = ({
+  id,
+  handleRateChange,
   handleClose,
   open,
   rating,
@@ -110,12 +112,13 @@ const ServiceModal = ({
           />
           <StyledDescription>{description}</StyledDescription>
           <Rating
-            name="rateService"
+            name={"rateService" + id}
             defaultValue={rating}
+            value={rating}
             precision={0.5}
             emptyIcon={<StarBorderIcon fontSize="inherit" />}
             onClick={(e) => e.stopPropagation()}
-            onChange={(e) => e.stopPropagation()}
+            onChange={handleRateChange}
           />
           <Input value={linkToService} variant="outlined" />
 
