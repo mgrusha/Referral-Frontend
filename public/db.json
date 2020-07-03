@@ -26,33 +26,6 @@
       "firstName": "My",
       "lastName": "guest",
       "avatar": ""
-    },
-    {
-      "userName": "Mykyta",
-      "password": "Mykyta",
-      "email": "grushman@gmail.com",
-      "firstName": "123123",
-      "lastName": "12312312",
-      "avatar": "",
-      "id": 8
-    },
-    {
-      "userName": "Mykyta",
-      "password": "Mykyta",
-      "email": "grushman@gmail.com",
-      "firstName": "3242",
-      "lastName": "234234",
-      "avatar": "",
-      "id": 9
-    },
-    {
-      "userName": "asdasd",
-      "password": "asdasd",
-      "email": "asdasd@asdas",
-      "firstName": "asdasd",
-      "lastName": "asdasd",
-      "avatar": "",
-      "id": 10
     }
   ],
   "categories": [
@@ -90,9 +63,9 @@
     },
     {
       "id": 5,
-      "name": "Transport3",
+      "name": "Gaming",
       "numberOfServices": "30",
-      "picture": "hotel",
+      "picture": "gamepad",
       "startColor": "#aeb844",
       "endColor": "#b9c452"
     },
@@ -100,15 +73,15 @@
       "id": 6,
       "name": "Travel",
       "numberOfServices": "30",
-      "picture": "hotel",
+      "picture": "plane",
       "startColor": "#425ab8",
       "endColor": "#596cba"
     },
     {
       "id": 7,
-      "name": "Travel1",
+      "name": "Clothing",
       "numberOfServices": "30",
-      "picture": "hotel",
+      "picture": "tshirt",
       "startColor": "#bf58b1",
       "endColor": "#bd35ab"
     }

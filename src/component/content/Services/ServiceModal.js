@@ -111,15 +111,17 @@ const ServiceModal = ({
             }}
           />
           <StyledDescription>{description}</StyledDescription>
-          <Rating
-            name={"rateService" + id}
-            defaultValue={rating}
-            value={rating}
-            precision={0.5}
-            emptyIcon={<StarBorderIcon fontSize="inherit" />}
-            onClick={(e) => e.stopPropagation()}
-            onChange={handleRateChange}
-          />
+          {JSON.parse(localStorage.getItem("user")) && (
+            <Rating
+              name={"rateService" + id}
+              defaultValue={rating}
+              value={rating}
+              precision={0.5}
+              emptyIcon={<StarBorderIcon fontSize="inherit" />}
+              onClick={(e) => e.stopPropagation()}
+              onChange={handleRateChange}
+            />
+          )}
           <Input value={linkToService} variant="outlined" />
 
           <CopyToClipboard text={linkToService} onCopy={() => setCopied(true)}>
