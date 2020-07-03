@@ -188,7 +188,6 @@
       "categoryId": 1,
       "id": 6
     },
-
     {
       "name": "Hotels.com",
       "logo": "hotels-com-logo.jpg",
@@ -232,6 +231,32 @@
       "shown": 10,
       "categoryId": 1,
       "id": 13
+    },
+    {
+      "name": "Uber",
+      "logo": "",
+      "link": "https://www.uber.com/invite/michaell89a5ui",
+      "description": "Michael has given you a FREE Uber (£5 or €5 depending on where you are in Europe). To claim your free gift, sign up using this link: ",
+      "ratings": [
+        {
+          "userId": 3,
+          "rating": 3
+        },
+        {
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "rating": 5
+        },
+        {
+          "userId": 1,
+          "rating": 5
+        }
+      ],
+      "shown": "0",
+      "categoryId": "2",
+      "id": 14
     }
   ],
   "ratings": [
