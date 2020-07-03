@@ -4,6 +4,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { ServicesList } from "./Services/ServicesList";
 import styled from "styled-components";
 import { AddButton } from "../generic/AddButton";
+import { AddService } from "./Services/AddService";
 
 const ContentWrap = styled.main`
   padding-bottom: 5rem;
@@ -38,6 +39,7 @@ const Content = () => {
           path={`${path}/service/:serviceName`}
           component={ServicesList}
         ></Route>
+        <Route exact path={`${path}/addService`} component={AddService}></Route>
       </Switch>
     </ContentWrap>
   );

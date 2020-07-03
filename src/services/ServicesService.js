@@ -51,16 +51,13 @@ const getServiceByServiceName = (
     });
 };
 
-//old correct way with view or more tables
 const rateForService = (rate, userId, serviceId) => {
   fetch(`${BACKEND_URL}/services?serviceId=${serviceId}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data[0]);
       const newRateArray = data[0].ratings.filter(
         (rating) => rating.userId !== userId
       );
-      console.log([...newRateArray, { userId: userId, rating: rate }]);
       fetch(`${BACKEND_URL}/services/${serviceId}`, {
         method: "PATCH",
         headers: {
@@ -78,6 +75,26 @@ const rateForService = (rate, userId, serviceId) => {
     });
 };
 
+const addService = (service, succesfulAdd, unsuccesfulAdd) => {
+  fetch(`${BACKEND_URL}/services`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(service),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Service added:", data);
+      succesfulAdd(data);
+    })
+    .catch((error) => {
+      unsuccesfulAdd(error);
+    });
+};
+
+//old correct way with view or more tables
 // const rateForService = (rate, userId, serviceId) => {
 //   fetch(`${BACKEND_URL}/ratings?userid=${userId}&serviceId=${serviceId}`)
 //     .then((response) => response.json())
@@ -127,4 +144,5 @@ export {
   getAllServices,
   getServiceByServiceName,
   rateForService,
+  addService,
 };
