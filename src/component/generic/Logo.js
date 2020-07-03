@@ -44,7 +44,7 @@ const FullLogo = ({ title, slogan }) => {
     <div
       onClick={() =>
         history.push({
-          pathname: "/",
+          pathname: "/home/categories",
         })
       }
     >

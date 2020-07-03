@@ -15,6 +15,8 @@ import {
   FormControl,
   InputLabel,
   Modal,
+  Backdrop,
+  Fade,
 } from "@material-ui/core";
 import { Loader } from "../../generic/Loader";
 
@@ -70,6 +72,44 @@ const ErrorText = styled.li`
   margin-bottom: 0.5rem;
 `;
 
+const AddServiceInfo = styled.div`
+  background-color: white;
+  border: 1px solid;
+  border-color: var(--main-font-family);
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px 6px #fff;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 3rem;
+  position: relative;
+  & > * {
+    margin: 0.5rem 0;
+  }
+`;
+
+const StyledModal = styled(Modal)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--main-font-family);
+`;
+
+const ServiceAddHeader = styled.h2`
+  color: green;
+  text-align: center;
+  font-size: 1.2rem;
+`;
+
+const ServiceModalDescription = styled.p`
+  text-align: center;
+`;
+
+const ServiceName = styled.span`
+  font-weight: 700;
+`;
+
 export const AddService = () => {
   let history = useHistory();
   const [service, setService] = useState({
@@ -90,10 +130,6 @@ export const AddService = () => {
   useEffect(() => {
     getAllCategories(setCategories, toogleIsLoaded, setHelperText);
   }, []);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const validateForm = () => {
     const newErrors = [];
@@ -125,6 +161,13 @@ export const AddService = () => {
 
   const succesfulAdd = (service) => {
     setOpen(true);
+    let timeOutId = setTimeout(() => {
+      setOpen(false);
+      history.push({
+        pathname: "/home/categories",
+      });
+      clearTimeout(timeOutId);
+    }, 2000);
   };
   const unsuccesfulAdd = (error) => {
     setHelperText([...helperText, error]);
@@ -221,6 +264,28 @@ export const AddService = () => {
             >
               Add Service
             </FormButton>
+            <StyledModal
+              aria-labelledby="success-add-modal"
+              open={open}
+              onClose={() => setOpen(false)}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <Fade in={open}>
+                <AddServiceInfo>
+                  <ServiceAddHeader id="success-add-modal">
+                    Service added
+                  </ServiceAddHeader>
+                  <ServiceModalDescription id="success-add-description">
+                    Service <ServiceName>{service.name}</ServiceName> added
+                    succesfully!
+                  </ServiceModalDescription>
+                </AddServiceInfo>
+              </Fade>
+            </StyledModal>
             <FormButton
               variant="contained"
               size="large"

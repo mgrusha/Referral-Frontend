@@ -1,6 +1,6 @@
 import React from "react";
 import { CategoriesList } from "./Category/CategoriesList";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch, NavLink } from "react-router-dom";
 import { ServicesList } from "./Services/ServicesList";
 import styled from "styled-components";
 import { AddButton } from "../generic/AddButton";
@@ -13,18 +13,28 @@ const ContentWrap = styled.main`
 
 //TODO MAKE FKNG BUTTON RIGHT
 const PlusButton = styled.div`
-  position: fixed;
-  bottom: 4.5rem;
+  position: relative;
   z-index: 100;
+  display: grid;
+  justify-content: center;
+  @media (min-width: 768px) {
+    bottom: 4.5rem;
+    position: fixed;
+    display: block;
+  }
 `;
 
 const Content = () => {
   let { path } = useRouteMatch();
   return (
     <ContentWrap className="container">
-      <PlusButton>
-        <AddButton />
-      </PlusButton>
+      {localStorage.getItem("user") && (
+        <PlusButton>
+          <NavLink strict to={`${path}/addService`}>
+            <AddButton />
+          </NavLink>
+        </PlusButton>
+      )}
       <Switch>
         <Route exact path={`${path}/categories`}>
           <CategoriesList />

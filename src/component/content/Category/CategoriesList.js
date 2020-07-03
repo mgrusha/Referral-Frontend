@@ -10,8 +10,11 @@ const CategoriesHolder = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
   @media (min-width: 1000px) {
     padding-top: 3rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
   }
 `;
 
