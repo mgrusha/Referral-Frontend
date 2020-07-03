@@ -128,12 +128,12 @@
           "rating": 5
         },
         {
-          "userId": 1,
-          "rating": 1
-        },
-        {
           "userId": 2,
           "rating": 5
+        },
+        {
+          "userId": 1,
+          "rating": 2.5
         }
       ],
       "shown": 553,
@@ -215,21 +215,7 @@
       "categoryId": 1,
       "id": 6
     },
-    {
-      "name": "Booking.com",
-      "logo": "Booking.com.jpg",
-      "link": "https://www.booking.com/s/35_8/a46d7e72",
-      "description": "Receive 5 commission-free bookings and Also you will receive a travel credit worth € 100. This travel credit will be sent 30-60 days after check out and can be used when booking next trip with us",
-      "ratings": [
-        {
-          "userId": 3,
-          "rating": 4.5
-        }
-      ],
-      "shown": 553,
-      "id": 1,
-      "categoryId": 7
-    },
+
     {
       "name": "Hotels.com",
       "logo": "hotels-com-logo.jpg",
@@ -273,136 +259,6 @@
       "shown": 10,
       "categoryId": 1,
       "id": 13
-    },
-    {
-      "name": "dsfsdf",
-      "logo": "",
-      "link": "sdfsdf",
-      "description": "dsfsdfsfdf",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "3",
-      "id": 14
-    },
-    {
-      "name": "sdfsf",
-      "logo": "",
-      "link": "sdfsdfsdf",
-      "description": "dsfsdfsd",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "2",
-      "id": 15
-    },
-    {
-      "name": "sdfsf",
-      "logo": "",
-      "link": "sdfsdfsdf",
-      "description": "dsfsdfsd",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "2",
-      "id": 16
-    },
-    {
-      "name": "sadasd",
-      "logo": "",
-      "link": "qweqwe",
-      "description": "asdasdas",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "4",
-      "id": 17
-    },
-    {
-      "name": "sadasd",
-      "logo": "",
-      "link": "https://material-ui.com/components/textarea-autosize/#textarea-autosize",
-      "description": "asdasdas",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "4",
-      "id": 18
-    },
-    {
-      "name": "asdasd",
-      "logo": "",
-      "link": "https://regex101.com/",
-      "description": "sadasd",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "3",
-      "id": 19
-    },
-    {
-      "name": "asdasd",
-      "logo": "",
-      "link": "https://regex101.com/",
-      "description": "sadasd",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "3",
-      "id": 20
-    },
-    {
-      "name": "asfsaf",
-      "logo": "",
-      "link": "https://codesandbox.io/s/usvnz?file=/demo.js:661-767",
-      "description": "",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "4",
-      "id": 21
-    },
-    {
-      "name": "asfsaf",
-      "logo": "",
-      "link": "https://codesandbox.io/s/usvnz?file=/demo.js:661-767",
-      "description": "",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "4",
-      "id": 22
-    },
-    {
-      "name": "wqewqeqwe",
-      "logo": "",
-      "link": "https://material-ui.com/components/modal/#simple-modal",
-      "description": "",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "3",
-      "id": 23
-    },
-    {
-      "name": "sadas",
-      "logo": "",
-      "link": "https://material-ui.com/components/modal/#simple-modal",
-      "description": "",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "4",
-      "id": 24
-    },
-    {
-      "name": "sdfsdf",
-      "logo": "",
-      "link": "https://codesandbox.io/s/usvnz?file=/demo.js:661-767",
-      "description": "",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "3",
-      "id": 25
-    },
-    {
-      "name": "sadasd",
-      "logo": "",
-      "link": "https://material-ui.com/components/modal/#simple-modal",
-      "description": "sadasdas",
-      "ratings": [],
-      "shown": "0",
-      "categoryId": "3",
-      "id": 26
     }
   ],
   "ratings": [

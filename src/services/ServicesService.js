@@ -40,6 +40,7 @@ const getServiceByServiceName = (
   fetch(`${BACKEND_URL}/services`)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       serviceState(
         data.filter((service) => service.name.includes(serviceName || ""))
       );

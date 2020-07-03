@@ -34,8 +34,11 @@ const FilterArea = ({ services, setServices }) => {
         services
           .filter(
             (service) =>
+              //Calcluate rating in ugly way
               service.name.toLowerCase().includes(nameFilter) &&
-              service.rating >= starRate
+              service.ratings.reduce((sum, elem) => (sum += elem.rating), 0) /
+                service.ratings.length >=
+                starRate
           )
           .sort((a, b) => {
             return sort

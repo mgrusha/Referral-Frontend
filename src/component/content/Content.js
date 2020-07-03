@@ -5,6 +5,7 @@ import { ServicesList } from "./Services/ServicesList";
 import styled from "styled-components";
 import { AddButton } from "../generic/AddButton";
 import { AddService } from "./Services/AddService";
+import { ServiceByName } from "./Services/ServiceByName";
 
 const ContentWrap = styled.main`
   padding-bottom: 5rem;
@@ -47,7 +48,7 @@ const Content = () => {
         <Route
           exact
           path={`${path}/service/:serviceName`}
-          component={ServicesList}
+          component={ServiceByName}
         ></Route>
         <Route exact path={`${path}/addService`} component={AddService}></Route>
       </Switch>

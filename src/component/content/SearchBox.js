@@ -9,6 +9,10 @@ const SearchBoxWrapper = styled.div`
   }
 `;
 
+const StyledSearchBox = styled(ReactSearchBox)`
+  position: absolute;
+`;
+
 const SearchBox = () => {
   const [data, setData] = useState([
     { key: "booking", value: "Booking.com" },
