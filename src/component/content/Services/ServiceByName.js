@@ -23,7 +23,7 @@ const ServiceByName = () => {
       toogleIsLoaded,
       setError
     );
-  }, []);
+  }, [serviceName]);
 
   let successLoading = (
     <>
