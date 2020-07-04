@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useHistory, useRouteMatch, NavLink, Link } from "react-router-dom";
+import { useHistory, useRouteMatch, Link } from "react-router-dom";
 
 const CategoryWrap = styled.div`
   border-radius: 10px;

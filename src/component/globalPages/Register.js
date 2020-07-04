@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
@@ -8,7 +8,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { FullLogo } from "../generic/Logo";
 import { FormButton } from "../generic/Button";
-import { validateUserCredentials, addUser } from "../../services/UserService";
+import { addUser } from "../../services/UserService";
 
 const RegisterForm = styled.form`
   display: flex;

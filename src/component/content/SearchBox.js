@@ -10,10 +10,6 @@ const SearchBoxWrapper = styled.div`
   }
 `;
 
-const StyledSearchBox = styled(ReactSearchBox)`
-  position: absolute;
-`;
-
 const SearchField = styled.input`
   padding: 10px 20px;
   border-radius: 5px;
