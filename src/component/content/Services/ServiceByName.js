@@ -4,21 +4,21 @@ import { useParams } from "react-router-dom";
 import { getServiceByServiceName } from "../../../services/ServicesService";
 import { Loader } from "../../generic/Loader";
 import { DisplayServices } from "./DisplayServices";
+import { useSetRecoilState } from "recoil";
+import { servicesToDisplay } from "../../../store/atoms";
 
 const ServiceByName = () => {
   let { serviceName } = useParams();
 
   const [isLoaded, toogleIsLoaded] = useState(false);
   const [error, setError] = useState();
-  const [services, setServices] = useState([]);
-  const [servicesToDisplay, setServicesToDisplay] = useState([]);
+  const setDisplayServices = useSetRecoilState(servicesToDisplay);
 
   useEffect(() => {
     getServiceByServiceName(
       serviceName,
       (services) => {
-        setServicesToDisplay(services);
-        setServices(services);
+        setDisplayServices(services);
       },
       toogleIsLoaded,
       setError
@@ -29,9 +29,6 @@ const ServiceByName = () => {
     <>
       <DisplayServices
         displayText={`Results for [${serviceName}]`}
-        services={services}
-        servicesToDisplay={servicesToDisplay}
-        setServicesToDisplay={setServicesToDisplay}
         error={error}
       />
     </>

@@ -9,10 +9,13 @@ import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import { Button } from "@material-ui/core";
+import { useSetRecoilState } from "recoil";
+import { starRate, nameFilter, sort } from "../../../../store/atoms";
 
 const FilerContainer = styled.div`
   display: none;
   width: 40%;
+  max-width: 300px;
   padding: 1rem 2rem;
   @media (min-width: 768px) {
     display: flex;
@@ -23,45 +26,62 @@ const FilerContainer = styled.div`
   }
 `;
 
-const FilterArea = ({ services, setServices }) => {
-  const [nameFilter, setNameFilter] = useState("");
-  const [starRate, setStarRate] = useState(0);
-  const [sort, toogleSort] = useState();
+const FilterArea = () => {
+  const [rate, setRate] = useState(0);
+  const [name, setName] = useState("");
+  const [sorting, setSorting] = useState({
+    order: "none",
+    howToSort: (a, b) => {},
+  });
+  const setStarRate = useSetRecoilState(starRate);
+  const setNameFilter = useSetRecoilState(nameFilter);
+  const setSort = useSetRecoilState(sort);
 
-  useEffect(
-    () =>
-      setServices(
-        services
-          .filter(
-            (service) =>
-              //Calcluate rating in ugly way
-              service.name.toLowerCase().includes(nameFilter) &&
-              service.ratings.reduce((sum, elem) => (sum += elem.rating), 0) /
-                service.ratings.length >=
-                starRate
-          )
-          .sort((a, b) => {
-            return sort
-              ? b.name.localeCompare(a.name)
-              : a.name.localeCompare(b.name);
-          })
-      ),
-    [nameFilter, starRate, sort]
-  );
+  useEffect(() => {
+    setStarRate(rate);
+    setNameFilter(name);
+    setSort(sorting);
+  }, [rate, name, sorting]);
+
+  const handleSort = () => {
+    if (sorting.order === "asc") {
+      setSorting({
+        order: "desc",
+        howToSort: (a, b) => b.name.localeCompare(a.name),
+      });
+    } else {
+      setSorting({
+        order: "asc",
+        howToSort: (a, b) => a.name.localeCompare(b.name),
+      });
+    }
+  };
+
+  let sortIcon = (order) => {
+    switch (order) {
+      case "none":
+        return "";
+      case "desc":
+        return <ArrowDownward />;
+      case "asc":
+        return <ArrowUpward />;
+    }
+  };
 
   return (
     <FilerContainer>
       <div>
-        <Button component="legend" onClick={() => toogleSort(!sort)}>
-          Sort by name {sort ? <ArrowUpward /> : <ArrowDownward />}
+        <Button component="legend" onClick={handleSort}>
+          Sort by name
+          {sortIcon(sorting.order)}
         </Button>
       </div>
       <div>
         <TextField
           id="filter-by-name"
           label="Filter by name"
-          value={nameFilter}
-          onChange={(e) => setNameFilter(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -75,9 +95,9 @@ const FilterArea = ({ services, setServices }) => {
         <Typography component="legend">Select minimal rating</Typography>
         <Rating
           name="customized-empty"
-          value={starRate}
+          value={rate}
           precision={0.5}
-          onChange={(e, currentValue) => setStarRate(currentValue)}
+          onChange={(e, currentValue) => setRate(currentValue)}
           emptyIcon={<StarBorderIcon fontSize="inherit" />}
         />
       </div>
@@ -85,8 +105,9 @@ const FilterArea = ({ services, setServices }) => {
         <Button
           variant="outlined"
           onClick={() => {
-            setStarRate(0);
-            setNameFilter("");
+            setRate(0);
+            setName("");
+            setSorting({ order: "none", howToSort: (a, b) => {} });
           }}
         >
           Reset filters

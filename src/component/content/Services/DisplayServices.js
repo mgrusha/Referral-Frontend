@@ -3,6 +3,9 @@ import { Service } from "./Service";
 import { FilterArea } from "./Filter/Filter";
 import { Error } from "../../generic/Error";
 import styled from "styled-components";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { servicesToDisplay } from "../../../store/atoms";
+import { getFilteredServices } from "../../../store/selector";
 
 const ServiceHolder = styled.div`
   flex-grow: 3;
@@ -26,23 +29,19 @@ const CategoryHeader = styled.h2`
   font-size: 3rem;
 `;
 
-export const DisplayServices = ({
-  services,
-  servicesToDisplay,
-  setServicesToDisplay,
-  error,
-  displayText,
-}) => {
+export const DisplayServices = ({ error, displayText }) => {
+  const services = useRecoilValue(getFilteredServices);
+
   return (
     <>
       <CategoryName>
         <CategoryHeader>{displayText}</CategoryHeader>
       </CategoryName>
       <CategoryWithFilter>
-        {<FilterArea services={services} setServices={setServicesToDisplay} />}
+        {<FilterArea />}
         <ServiceHolder>
           {(error && <Error error={error} />) ||
-            servicesToDisplay.map((service) => (
+            services.map((service) => (
               <Service
                 key={service.id}
                 name={service.name}

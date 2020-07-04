@@ -7,19 +7,22 @@ import { Application } from "./component/globalPages/Application";
 import { PageNotFound } from "./component/globalPages/PageNotFound";
 import { Login } from "./component/globalPages/Login";
 import { Register } from "./component/globalPages/Register";
+import { RecoilRoot } from "recoil";
 
 library.add(fas);
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" component={Application} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route component={PageNotFound} />
-      </Switch>
-    </Router>
+    <RecoilRoot>
+      <Router>
+        <Switch>
+          <Route path="/" component={Application} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route component={PageNotFound} />
+        </Switch>
+      </Router>
+    </RecoilRoot>
   );
 }
 
