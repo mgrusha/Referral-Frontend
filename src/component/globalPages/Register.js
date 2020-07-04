@@ -102,7 +102,7 @@ export const Register = (props) => {
   const succesfulLogin = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
     history.push({
-      pathname: "/home/categories",
+      pathname: "/categories",
     });
   };
   const unsuccesfulLogin = (error) => {

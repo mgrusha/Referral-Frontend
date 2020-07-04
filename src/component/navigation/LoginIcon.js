@@ -4,7 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 import { FormButton } from "../generic/Button";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 
 const FieldBox = styled.div`
   display: flex;
@@ -15,6 +15,7 @@ const FieldBox = styled.div`
 const MenuItem = styled.div`
   padding: 0.5rem 0;
   width: 100%;
+
   & > button {
     width: 100%;
   }
@@ -108,13 +109,15 @@ export const LoginIcon = ({ logIn }) => {
             <FormButton
               variant="contained"
               tabIndex={4}
-              onClick={() =>
-                history.push({
-                  pathname: "/register",
-                })
-              }
+              onClick={(e) => e.preventDefault()}
             >
-              Register
+              <NavLink
+                strict
+                to={`/register`}
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                Register
+              </NavLink>
             </FormButton>
           </MenuItem>
         </FieldBox>

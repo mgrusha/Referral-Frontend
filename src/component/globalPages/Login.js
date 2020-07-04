@@ -5,7 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardHeader from "@material-ui/core/CardHeader";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import { FullLogo } from "../generic/Logo";
 import { FormButton } from "../generic/Button";
 import { validateUserCredentials } from "../../services/UserService";
@@ -135,17 +135,11 @@ export const Login = (props) => {
             >
               Login
             </FormButton>
-            <FormButton
-              variant="contained"
-              size="large"
-              onClick={() =>
-                history.push({
-                  pathname: "/register",
-                })
-              }
-            >
-              SIGN UP
-            </FormButton>
+            <NavLink strict to={`/register`}>
+              <FormButton variant="contained" size="large">
+                SIGN UP
+              </FormButton>
+            </NavLink>
           </StyledCardActions>
         </Card>
       </LoginForm>

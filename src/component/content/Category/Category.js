@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory, useRouteMatch, NavLink, Link } from "react-router-dom";
 
 const CategoryWrap = styled.div`
   border-radius: 10px;
@@ -56,22 +56,28 @@ const Category = ({
   let history = useHistory();
   let { path } = useRouteMatch();
   return (
-    <CategoryWrap
-      startColor={startColor}
-      endColor={endColor}
-      onClick={() =>
-        history.push({
-          pathname: `${path}/${categoryName}`,
-          state: { categoryId: categoryId },
-        })
-      }
+    <Link
+      strict
+      to={`/categories/${categoryName}`}
+      style={{ textDecoration: "none", color: "white" }}
     >
-      <CategoryIcon icon={picture} />
-      <CategoryTextHolder>
-        <CategoryName>{categoryName}</CategoryName>
-        <ServicesCount>{numOfServices} services</ServicesCount>
-      </CategoryTextHolder>
-    </CategoryWrap>
+      <CategoryWrap
+        startColor={startColor}
+        endColor={endColor}
+        // onClick={() =>
+        //   history.push({
+        //     pathname: `/categories/${categoryName}`,
+        //     state: { categoryId: categoryId },
+        //   })
+        // }
+      >
+        <CategoryIcon icon={picture} />
+        <CategoryTextHolder>
+          <CategoryName>{categoryName}</CategoryName>
+          <ServicesCount>{numOfServices} services</ServicesCount>
+        </CategoryTextHolder>
+      </CategoryWrap>
+    </Link>
   );
 };
 

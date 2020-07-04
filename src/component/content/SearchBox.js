@@ -31,7 +31,7 @@ const SearchBox = () => {
     if (e.keyCode === 13 || e.which === 13) {
       if (searchValue !== "") {
         history.push({
-          pathname: `/home/service/${searchValue}`,
+          pathname: `/service/${searchValue}`,
         });
       }
     }

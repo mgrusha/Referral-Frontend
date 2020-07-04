@@ -31,26 +31,29 @@ const Content = () => {
     <ContentWrap className="container">
       {localStorage.getItem("user") && (
         <PlusButton>
-          <NavLink strict to={`${path}/addService`}>
+          <NavLink strict to={`/addService`}>
             <AddButton />
           </NavLink>
         </PlusButton>
       )}
       <Switch>
-        <Route exact path={`${path}/categories`}>
+        <Route exact path={`/categories`}>
+          <CategoriesList />
+        </Route>
+        <Route exact path={`/`}>
           <CategoriesList />
         </Route>
         <Route
           exact
-          path={`${path}/categories/:categoryName`}
+          path={`/categories/:categoryName`}
           component={ServicesList}
         ></Route>
         <Route
           exact
-          path={`${path}/service/:serviceName`}
+          path={`/service/:serviceName`}
           component={ServiceByName}
         ></Route>
-        <Route exact path={`${path}/addService`} component={AddService}></Route>
+        <Route exact path={`/addService`} component={AddService}></Route>
       </Switch>
     </ContentWrap>
   );
