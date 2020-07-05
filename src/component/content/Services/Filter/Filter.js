@@ -15,11 +15,11 @@ import { starRate, nameFilter, sort } from "../../../../store/atoms";
 const FilerContainer = styled.div`
   display: none;
   width: 40%;
-  max-width: 300px;
   padding: 1rem 2rem;
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
+    max-width: 260px;
   }
   & > div {
     margin-bottom: 1.5rem;

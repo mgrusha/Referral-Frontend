@@ -84,17 +84,17 @@ const Service = ({
       <ServiceWrap onClick={handleOpen}>
         <Picture picture={logo} />
         <ContentWrapper>
-          {JSON.parse(localStorage.getItem("user")) && (
-            <Rating
-              name={"rateService" + id}
-              defaultValue={rating}
-              precision={0.5}
-              emptyIcon={<StarBorderIcon fontSize="inherit" />}
-              value={rating}
-              onChange={handleRateChange}
-              onClick={(e) => e.stopPropagation()}
-            />
-          )}
+          <Rating
+            name={"rateService" + id}
+            defaultValue={rating}
+            precision={0.5}
+            emptyIcon={<StarBorderIcon fontSize="inherit" />}
+            value={rating}
+            onChange={handleRateChange}
+            onClick={(e) => e.stopPropagation()}
+            readOnly={!Boolean(JSON.parse(localStorage.getItem("user")))}
+          />
+
           <Name>{name}</Name>
           <Shown>{shown} uses</Shown>
         </ContentWrapper>

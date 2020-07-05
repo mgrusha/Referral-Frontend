@@ -43,6 +43,7 @@ const Header = () => {
   const loginSucced = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
     setLoggedUser({ loggedStatus: true, user: user });
+    history.go();
   };
 
   const loginFailed = (login) => {
@@ -62,6 +63,7 @@ const Header = () => {
   const logOut = () => {
     setLoggedUser({ loggedStatus: false, user: {} });
     localStorage.clear();
+    history.go();
   };
 
   return (
