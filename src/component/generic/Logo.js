@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import LinePic from "../../assets/line.png";
 import ArrowPicLeft from "../../assets/arrow.png";
-import { useHistory, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Arrow = styled.div`
   height: 34px;
@@ -39,7 +39,6 @@ const Slogan = styled.h4`
 `;
 
 const FullLogo = ({ title, slogan }) => {
-  let history = useHistory();
   return (
     <NavLink strict to={`/`}>
       <LeftArrow />

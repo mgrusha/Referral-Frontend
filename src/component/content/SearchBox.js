@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ReactSearchBox from "react-search-box";
 import { useHistory } from "react-router-dom";
 
 const SearchBoxWrapper = styled.div`

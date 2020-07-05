@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Rating from "@material-ui/lab/Rating";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-
 import { ServiceModal } from "./ServiceModal";
 import { rateForService } from "../../../services/ServicesService";
 

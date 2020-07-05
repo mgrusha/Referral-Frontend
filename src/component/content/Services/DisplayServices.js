@@ -3,8 +3,7 @@ import { Service } from "./Service";
 import { FilterArea } from "./Filter/Filter";
 import { Error } from "../../generic/Error";
 import styled from "styled-components";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { servicesToDisplay } from "../../../store/atoms";
+import { useRecoilValue } from "recoil";
 import { getFilteredServices } from "../../../store/selector";
 
 const ServiceHolder = styled.div`

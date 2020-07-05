@@ -1,6 +1,6 @@
 import React from "react";
 import { CategoriesList } from "./Category/CategoriesList";
-import { Switch, Route, useRouteMatch, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 import { ServicesList } from "./Services/ServicesList";
 import styled from "styled-components";
 import { AddButton } from "../generic/AddButton";
@@ -26,7 +26,6 @@ const PlusButton = styled.div`
 `;
 
 const Content = () => {
-  let { path } = useRouteMatch();
   return (
     <ContentWrap className="container">
       {localStorage.getItem("user") && (

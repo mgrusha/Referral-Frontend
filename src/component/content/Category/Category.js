@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useHistory, useRouteMatch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CategoryWrap = styled.div`
   border-radius: 10px;
@@ -47,14 +47,11 @@ const ServicesCount = styled.span`
 
 const Category = ({
   categoryName,
-  categoryId,
   numOfServices,
   picture,
   startColor,
   endColor,
 }) => {
-  let history = useHistory();
-  let { path } = useRouteMatch();
   return (
     <Link
       strict

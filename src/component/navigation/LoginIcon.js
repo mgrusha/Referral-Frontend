@@ -4,7 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 import { FormButton } from "../generic/Button";
-import { useHistory, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const FieldBox = styled.div`
   display: flex;
@@ -22,7 +22,6 @@ const MenuItem = styled.div`
 `;
 
 export const LoginIcon = ({ logIn }) => {
-  const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");

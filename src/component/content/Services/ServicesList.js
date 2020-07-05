@@ -6,7 +6,7 @@ import { Loader } from "../../generic/Loader";
 
 import { getCategoryIdByName } from "../../../services/CategoryService";
 import { DisplayServices } from "./DisplayServices";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { servicesToDisplay } from "../../../store/atoms";
 
 const ServicesList = () => {

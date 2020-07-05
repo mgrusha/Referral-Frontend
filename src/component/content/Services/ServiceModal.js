@@ -4,7 +4,6 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Input from "@material-ui/core/Input";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { Button } from "@material-ui/core";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Rating from "@material-ui/lab/Rating";
 import styled from "styled-components";
