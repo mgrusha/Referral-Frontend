@@ -32,7 +32,10 @@ const ServicesList = () => {
     getServiceByCategoryId(categoryId, setServices, toogleIsLoaded, setError);
   }, [categoryId]);
 
-  useEffect(() => setDisplayServices(services), [services]);
+  useEffect(() => {
+    console.log(services);
+    setDisplayServices(services);
+  }, [services]);
 
   let successLoading = (
     <DisplayServices displayText={categoryName} error={error} />

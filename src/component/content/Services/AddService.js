@@ -117,9 +117,9 @@ export const AddService = () => {
     logo: "",
     link: "",
     description: "",
-    ratings: [],
+    ratings: [{ userId: 0, rating: 0 }],
     shown: "0",
-    categoryId: "",
+    categoryId: 0,
   });
   const [categories, setCategories] = useState([]);
   const [isLoaded, toogleIsLoaded] = useState(false);
@@ -136,7 +136,7 @@ export const AddService = () => {
     if (service.name < 3) {
       newErrors.push("Service name must be at least 3 characters long");
     }
-    if (service.categoryId === "") {
+    if (service.categoryId === "" || service.categoryId === 0) {
       newErrors.push("Choose the category");
     }
     if (!isURL(service.link)) {
@@ -164,7 +164,7 @@ export const AddService = () => {
     let timeOutId = setTimeout(() => {
       setOpen(false);
       history.push({
-        pathname: "/home/categories",
+        pathname: "/categories",
       });
       clearTimeout(timeOutId);
     }, 2000);
@@ -210,7 +210,12 @@ export const AddService = () => {
                     native
                     name="categoryId"
                     value={service.categoryId}
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) =>
+                      setService({
+                        ...service,
+                        ["categoryId"]: Number(e.target.value),
+                      })
+                    }
                   >
                     <option aria-label="None" value="" />
                     {categories.map((category) => (
@@ -299,7 +304,7 @@ export const AddService = () => {
                   description: "",
                   ratings: [],
                   shown: "0",
-                  categoryId: "",
+                  categoryId: 0,
                 });
               }}
             >

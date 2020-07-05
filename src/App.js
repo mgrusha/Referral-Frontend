@@ -16,9 +16,10 @@ function App() {
     <RecoilRoot>
       <Router>
         <Switch>
-          <Route path="/" component={Application} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route path="/" component={Application} />
+
           <Route component={PageNotFound} />
         </Switch>
       </Router>

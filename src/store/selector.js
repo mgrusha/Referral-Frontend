@@ -15,6 +15,7 @@ export const getFilteredServices = selector({
     const name = get(nameFilter);
     const rate = get(starRate);
     const { howToSort } = get(sort);
+    console.log(3, services);
     return services
       .filter(
         (service) =>

@@ -22,7 +22,7 @@ const getServiceByCategoryId = (
   fetch(`${BACKEND_URL}/services`)
     .then((response) => response.json())
     .then((data) => {
-      serviceState(data.filter((service) => service.categoryId == categoryId));
+      serviceState(data.filter((service) => service.categoryId === categoryId));
       toogleIsLoaded(true);
     })
     .catch((error) => {
